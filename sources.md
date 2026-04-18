@@ -5,7 +5,41 @@ Per claim: link, titel, bezoekdatum, relevante quote.
 
 ## Hoofdstuk 1 — Stroomnet
 
-_Wordt aangevuld tijdens hoofdstuk 1 content-plan._
+Gevalideerd op 2026-04-18.
+
+### Frequentie en balans (slide 1.3)
+
+- **ENTSO-E — Frequency Stability Evaluation Criteria.** [RGCE_SPD_frequency_stability_criteria_v10.pdf](https://www.entsoe.eu/Documents/SOC%20documents/RGCE_SPD_frequency_stability_criteria_v10.pdf) — normaal-bereik ±50 mHz, maximum bestendig ±200 mHz, ogenblikkelijk ±800 mHz.
+- **Elia — FCR Design Note 2020.** [Design note FCR for 2020](https://www.elia.be/-/media/project/elia/elia-site/electricity-market-and-system---document-library/balancing---balancing-services-and-bsp/2019/2019-design-note-fcr-for-2020.pdf) — *"The full activation of the provided FCR shall be reached with a frequency deviation of ±200 mHz."*
+- **EU System Operation Guideline** (Commission Regulation 2017/1485) — kadert de bovenstaande normen EU-breed.
+- **Energuide (CREG-gelinkt) — Why does the grid have to stay in balance?** [energuide.be/2136](https://www.energuide.be/en/questions-answers/why-does-the-electricity-grid-have-to-stay-in-balance/2136/) — lay-audience verklaring.
+
+### Fiets-analogie / rotational-mass model (slide 1.2)
+
+- **POWER Magazine — How decreasing inertia is affecting power grids.** [powermag.com](https://www.powermag.com/how-decreasing-inertia-is-affecting-power-grids-and-what-to-do-about-it/) — populair-wetenschappelijke uitleg van synchrone-machine-vliegwiel.
+- **Wattshappening.be (Elia/Vlaamse overheid) — Balancing the Energy Grid.** [wattshappening.be](https://www.wattshappening.be/discover-flexibility/balancing-the-energy-grid) — gebruikt vergelijkbare lay-analogieën.
+
+### Reactietijden centrales (slide 1.4)
+
+- **OECD/NEA — Technical and Economic Aspects of Load Following with Nuclear Power Plants (2021).** [nea.org](https://www.oecd-nea.org/upload/docs/application/pdf/2021-12/technical_and_economic_aspects_of_load_following_with_nuclear_power_plants.pdf) — EDF N4 2-5 %/min; ontwerpstandaarden moderne PWR.
+- **SNETP Factsheet 7 — Load-following capabilities of nuclear power plants.** [snetp.eu](https://snetp.eu/wp-content/uploads/2020/05/SNETP-Factsheet-7-Load-following-capabilities-of-nuclear-power-plants.pdf).
+- **IRENA — Flexibility in Conventional Power Plants (2019).** [irena.org](https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2019/Sep/IRENA_Flexibility_in_CPPs_2019.pdf) — CCGT / OCGT ramp rates en startuptijden.
+- **MDPI Energies — Optimization of CCGT Start-Up Ramp Rate (2024).** [mdpi.com](https://www.mdpi.com/1996-1073/19/4/1028) — peer-reviewed CCGT-data.
+- **Fraunhofer — Fast Frequency Response with BESS.** [publica-rest.fraunhofer.de](https://publica-rest.fraunhofer.de/server/api/core/bitstreams/a4a6793c-1dfe-4272-ab05-0e6f24604270/content) — BESS sub-seconde respons.
+- **Elia — FCR/aFRR/mFRR specificaties.** [elia.be/en/electricity-market-and-system/system-services/keeping-the-balance](https://www.elia.be/en/electricity-market-and-system/system-services/keeping-the-balance/fcr).
+
+### Grote batterijparken (slide 1.5)
+
+- **ENGIE — BESS Vilvoorde fully commissioned (14 nov 2025).** [corporate.engie.be](https://corporate.engie.be/en/press/release/engies-battery-storage-project-vilvoorde-fully-commissioned) — 200 MW / 800 MWh, 15-jaar Elia CRM contract.
+- **ENGIE — BESS Drogenbos.** [corporate.engie.be](https://corporate.engie.be/en/press/release/engie-build-new-battery-park-drogenbos-expanding-its-battery-storage-capacity-belgium) — ~100 MW / ~400 MWh, CRM toegekend.
+- **Power Technology — GIGA Green Turtle (Dilsen-Stokkem).** [power-technology.com](https://www.power-technology.com/news/giga-storage-approval-bess-belgium/) — 600-700 MW, operationeel doel 2028.
+- **Energy-Storage.News — GIGA Storage 2,8 GWh Belgium BESS.** [energy-storage.news](https://www.energy-storage.news/giga-storage-contracts-sweco-to-design-2-8gwh-belgium-bess/).
+
+### Inhoudelijke nuances die in de deck staan (niet op slide, wel in speaker notes)
+
+- Belgische reactoren ~1000 MW (Doel 4: 1039 MW; Tihange 3: 1046 MW). Vilvoorde is een fractie daarvan.
+- Moderne PWR's (EPR, N4) kunnen 2-5 %/min ramp; BE opereert baseload, vandaar de "minuten tot uren" op slide.
+- Dalende systeem-inertie door PV/BESS-dominantie is reëel en maakt Elia's balansrol moeilijker. Zie POWER Magazine bron.
 
 ## Hoofdstuk 2 — Je factuur
 

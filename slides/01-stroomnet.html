@@ -1,13 +1,138 @@
 <!-- Hoofdstuk 1 — Hoe werkt het stroomnet? -->
 <section>
+
+  <!-- 1.1 — Opener -->
   <section>
     <span class="sp-chapter-label">1 · Stroomnet</span>
     <h2>Hoe werkt het stroomnet eigenlijk?</h2>
-    <p style="color: var(--sp-text-muted);">Fiets-analogie, 50 Hz, productiemiddelen, grote batterijparken.</p>
+    <p style="color: var(--sp-text-muted); font-size: 0.8em; margin-top: 1em;">
+      Een korte stap terug. De rest van de avond leunt op wat er nu volgt.
+    </p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 1. Rode draad:
-      fiets-analogie als metafoor voor netbalans. Introductie van "markt egaliseert
-      zichzelf"-draad via grote batterijparken.
+      Doel: publiek voorbereiden op termen als capaciteitstarief, dynamisch tarief, VPP.
+      Die worden pas logisch als ze snappen dat het net elke seconde in balans moet zijn.
+      Richttijd: 30 sec.
     </aside>
   </section>
+
+  <!-- 1.2 — Fiets-analogie -->
+  <section>
+    <span class="sp-chapter-label">1 · Stroomnet</span>
+    <h2>Denk aan een fiets</h2>
+    <ul style="font-size: 0.85em; line-height: 1.8;">
+      <li>Vlak terrein, windstil — constante kracht geeft constante snelheid.</li>
+      <li>Tegenwind of helling omhoog — meer kracht nodig om je snelheid te houden.</li>
+      <li>Rugwind of helling omlaag — minder kracht, of remmen.</li>
+    </ul>
+    <p class="sp-goed" style="margin-top: 1em; font-size: 0.85em;">
+      Je kan <em>niet</em> op voorhand harder trappen "voor straks" — dat versnelt je <em>nu</em>.
+    </p>
+    <aside class="notes">
+      Centrale analogie van de hele deck. Rustig uitspreken — dit komt later terug
+      (dynamisch tarief, netdiensten). Hier alleen de intuïtie neerzetten,
+      nog geen elektriciteits-vertaling doen.
+    </aside>
+  </section>
+
+  <!-- 1.3 — Vertaling naar elektriciteit -->
+  <section>
+    <span class="sp-chapter-label">1 · Stroomnet</span>
+    <h2>Zo werkt ook elektriciteit</h2>
+    <table style="font-size: 0.7em; margin: 0.8em auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--sp-border);">
+          <th style="padding: 0.4em 1em; text-align: left;">Fiets</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Stroomnet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 0.3em 1em;">Snelheid</td><td style="padding: 0.3em 1em;">Frequentie — <strong>50 Hz</strong> in Europa</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Kracht op pedalen</td><td style="padding: 0.3em 1em;">Productie</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Wind en helling</td><td style="padding: 0.3em 1em;">Verbruik, doorlopend wisselend</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.72em; color: var(--sp-text-muted); margin-top: 0.5em;">
+      Elia houdt de frequentie binnen ±0,2 Hz van 50 Hz.
+      Elke seconde moet productie gelijk zijn aan verbruik — niet gemiddeld, op elk moment.
+    </p>
+    <p class="sp-bron">Bron: Elia FCR Design Note (2020); ENTSO-E System Operation Guideline.</p>
+    <aside class="notes">
+      De "polshartslag" van het net. Voor technisch publiek op vraag: normaal-bereik
+      ENTSO-E is ±50 mHz, volledige FCR-activatie bij ±200 mHz, massa-ontkoppeling bij
+      47,5 / 51,5 Hz. Voor leken: onthoud ±0,2 Hz.
+
+      Nuance die je eventueel kort kan toevoegen: draaiende centrales werken als
+      "zwenggewicht" (inertie) — hoe meer rotatie op het net, hoe trager de frequentie
+      verandert bij een schommeling. Die inertie daalt nu iedereen op zonne- en batterij-
+      energie overschakelt. Daarom wordt Elia's werk elk jaar moeilijker.
+    </aside>
+  </section>
+
+  <!-- 1.4 — Productie-types en reactiesnelheid -->
+  <section>
+    <span class="sp-chapter-label">1 · Stroomnet</span>
+    <h2>Niet elke productie reageert even snel</h2>
+    <table style="font-size: 0.68em; margin: 0.6em auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--sp-border);">
+          <th style="padding: 0.4em 1em; text-align: left;">Type</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Aanpassen</th>
+          <th style="padding: 0.4em 1em; text-align: left;">CO₂</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 0.3em 1em;">Kernenergie (BE)</td><td style="padding: 0.3em 1em;">Minuten tot uren</td><td style="padding: 0.3em 1em;">Zeer laag</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Gascentrale</td><td style="padding: 0.3em 1em;">Minuten</td><td style="padding: 0.3em 1em;">Hoog</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Wind en zon</td><td style="padding: 0.3em 1em;">Volgt het weer</td><td style="padding: 0.3em 1em;">Zeer laag</td></tr>
+        <tr style="background: var(--sp-bg-subtle);"><td style="padding: 0.3em 1em;"><strong>Batterij</strong></td><td style="padding: 0.3em 1em;"><strong>Milliseconden</strong></td><td style="padding: 0.3em 1em;">Geen (tijdens werking)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.7em; color: var(--sp-text-muted); margin-top: 0.5em;">
+      Versimpeld — moderne reactoren kunnen technisch sneller, maar in België draaien ze als basislast.
+    </p>
+    <p class="sp-bron">Bron: OECD/NEA Load Following (2021); IRENA Flexibility in CPPs (2019); Elia reserves.</p>
+    <aside class="notes">
+      Nuance die je mondeling kan toevoegen als iemand vraagt: moderne PWR's (EPR in
+      Frankrijk, EDF N4) kunnen 2-5%/min ramp. In België draaien Doel 4 (1039 MW)
+      en Tihange 3 (1046 MW) als baseload — technisch zou het kunnen, maar wordt zo
+      niet ingezet.
+
+      Gas: CCGT 3-10 MW/min als al draaiend; OCGT start 10-20 min tot vol vermogen.
+      BESS: volle respons binnen 100 ms tot sub-seconde.
+
+      Conclusie die de volgende slide opent: batterijen kunnen iets wat niemand anders kan —
+      razendsnel bijsturen.
+    </aside>
+  </section>
+
+  <!-- 1.5 — Grote batterijparken -->
+  <section>
+    <span class="sp-chapter-label">1 · Stroomnet</span>
+    <h2>Een nieuwe speler: grote batterijparken</h2>
+    <ul style="font-size: 0.85em; line-height: 1.7;">
+      <li><strong>Vilvoorde</strong> (ENGIE) — 200 MW / 800 MWh, operationeel sinds november 2025.</li>
+      <li><strong>Green Turtle</strong> (Dilsen-Stokkem) — 600-700 MW, in aanbouw, doel 2028.</li>
+    </ul>
+    <p style="font-size: 0.78em; margin-top: 1em;">
+      Vilvoorde alléén levert evenveel vermogen als een middelgrote gascentrale.
+      Stil. Zonder uitstoot. En sneller dan wat dan ook.
+    </p>
+    <p class="sp-goed" style="margin-top: 0.6em; font-size: 0.78em;">
+      Wat deze parken op gigaschaal doen, doet jouw thuisbatterij op kleine schaal. Onthoud dit.
+    </p>
+    <p class="sp-bron">Bron: ENGIE persbericht Vilvoorde (14 nov 2025); Power Technology op Green Turtle (2024).</p>
+    <aside class="notes">
+      Hier begint de rode draad "markt egaliseert zichzelf". Nog geen conclusies trekken —
+      die komen later (hoofdstuk 2 bij dynamisch tarief, hoofdstuk 4 bij arbitrage,
+      hoofdstuk 7 bij VPP).
+
+      Niet overdrijven: één Belgische reactor = ~1000 MW, dus Vilvoorde is een fractie
+      van een reactor. "Middelgrote gascentrale" is een eerlijker vergelijking dan "een kerncentrale".
+
+      Context: Vilvoorde heeft een 15-jaar Elia CRM capaciteitscontract — dit is dus
+      geen experiment, het is infrastructuur. Gebruik dat feit als publiek vraagt of
+      dit een tijdelijk fenomeen is.
+    </aside>
+  </section>
+
 </section>
