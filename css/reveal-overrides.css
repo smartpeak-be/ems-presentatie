@@ -1,0 +1,152 @@
+/* SmartPeak — Reveal theme overrides
+   Colors: marine primary, amber highlight, soft green 'good'.
+   Typography: Inter, self-hosted.
+*/
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+:root {
+  --sp-marine: #0A2540;
+  --sp-marine-soft: #1E3A5F;
+  --sp-amber: #FFB400;
+  --sp-green: #06A77D;
+  --sp-text: #1A202C;
+  --sp-text-muted: #4A5568;
+  --sp-bg: #FFFFFF;
+  --sp-bg-subtle: #F7FAFC;
+  --sp-border: #E2E8F0;
+}
+
+.reveal {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 32px;
+  color: var(--sp-text);
+  background: var(--sp-bg);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--sp-marine);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.5em;
+}
+
+.reveal h1 { font-size: 2.0em; }
+.reveal h2 { font-size: 1.5em; }
+.reveal h3 { font-size: 1.15em; color: var(--sp-marine-soft); }
+
+.reveal p,
+.reveal li {
+  line-height: 1.5;
+  color: var(--sp-text);
+}
+
+.reveal a {
+  color: var(--sp-marine);
+  text-decoration: underline;
+  text-decoration-color: var(--sp-amber);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.reveal .slide-number {
+  display: none;
+}
+
+.reveal .controls {
+  color: var(--sp-marine);
+}
+
+.reveal .progress {
+  color: var(--sp-amber);
+  height: 3px;
+}
+
+/* Semantic classes for slide content */
+.reveal .sp-valkuil {
+  border-left: 6px solid var(--sp-amber);
+  padding: 0.5em 0 0.5em 1em;
+  background: var(--sp-bg-subtle);
+  font-size: 0.9em;
+}
+
+.reveal .sp-valkuil::before {
+  content: "Valkuil — ";
+  font-weight: 700;
+  color: var(--sp-amber);
+}
+
+.reveal .sp-goed {
+  border-left: 6px solid var(--sp-green);
+  padding: 0.5em 0 0.5em 1em;
+  background: var(--sp-bg-subtle);
+}
+
+.reveal .sp-bron {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  right: 24px;
+  font-size: 0.45em;
+  color: var(--sp-text-muted);
+  text-align: left;
+}
+
+.reveal .sp-chapter-label {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 0.5em;
+  color: var(--sp-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.reveal .sp-logo {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  height: 48px;
+}
+
+/* Title slide */
+.reveal .sp-title-slide {
+  text-align: left;
+}
+
+.reveal .sp-title-slide h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+}
+
+.reveal .sp-title-slide .sp-subtitle {
+  color: var(--sp-text-muted);
+  font-size: 1.0em;
+  font-weight: 400;
+}
