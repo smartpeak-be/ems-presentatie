@@ -51,7 +51,7 @@
     </div>
 
     <p class="sp-goed sp-small">
-      Je kan <em>niet</em> op voorhand harder trappen "voor straks", dat versnelt je <em>nu</em>.
+      Je kan <em>niet</em> op voorhand harder trappen voor later, dat versnelt je gewoon <em>nu</em>.
     </p>
 
     <aside class="notes">
@@ -80,7 +80,7 @@
     <div class="sp-card marine">
       <p class="sp-small">
         Elia houdt de frequentie binnen <strong>±0,2 Hz</strong> van 50 Hz.
-        Elke seconde moet productie gelijk zijn aan verbruik, niet gemiddeld, op elk moment.
+        Elke seconde moet productie gelijk zijn aan verbruik. Niet gemiddeld over een dag, maar op elk moment.
       </p>
     </div>
 
@@ -115,7 +115,7 @@
     </table>
 
     <p class="sp-muted sp-small">
-      Versimpeld, moderne reactoren kunnen technisch sneller, maar in België draaien ze als basislast.
+      Simpel gezegd: moderne reactoren zouden technisch wél snel kunnen bijsturen, maar in België worden ze ingezet voor constante productie.
     </p>
 
     <p class="sp-bron">Bron: OECD/NEA Load Following (2021); IRENA Flexibility in CPPs (2019); Elia reserves.</p>
@@ -132,7 +132,84 @@
     </aside>
   </section>
 
-  <!-- 1.5 — Grote batterijparken -->
+  <!-- 1.5 — De duck curve -->
+  <section>
+    <span class="sp-chapter-label">1 · Stroomnet</span>
+    <h2>De duck curve</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 460px;">
+          <!-- gridlines -->
+          <line x1="30" y1="30" x2="385" y2="30" stroke="#EDF2F7" stroke-width="1"/>
+          <line x1="30" y1="90" x2="385" y2="90" stroke="#EDF2F7" stroke-width="1"/>
+          <line x1="30" y1="150" x2="385" y2="150" stroke="#EDF2F7" stroke-width="1"/>
+          <!-- axes -->
+          <line x1="30" y1="210" x2="385" y2="210" stroke="#CBD5E0" stroke-width="1"/>
+          <line x1="30" y1="30" x2="30" y2="210" stroke="#CBD5E0" stroke-width="1"/>
+          <!-- Y labels -->
+          <text x="26" y="33" text-anchor="end" font-size="9" fill="#4A5568">9 GW</text>
+          <text x="26" y="93" text-anchor="end" font-size="9" fill="#4A5568">6 GW</text>
+          <text x="26" y="153" text-anchor="end" font-size="9" fill="#4A5568">3 GW</text>
+          <text x="26" y="213" text-anchor="end" font-size="9" fill="#4A5568">0</text>
+          <!-- X labels -->
+          <text x="30" y="224" text-anchor="middle" font-size="9" fill="#4A5568">0u</text>
+          <text x="121" y="224" text-anchor="middle" font-size="9" fill="#4A5568">6u</text>
+          <text x="213" y="224" text-anchor="middle" font-size="9" fill="#4A5568">12u</text>
+          <text x="304" y="224" text-anchor="middle" font-size="9" fill="#4A5568">18u</text>
+          <text x="380" y="224" text-anchor="middle" font-size="9" fill="#4A5568">24u</text>
+          <!-- area under curve -->
+          <polygon points="30,210 30,56 45,63 60,71 76,78 91,79 106,77 121,79 137,90 152,109 167,131 182,154 197,169 213,178 228,183 243,183 258,173 273,157 289,126 304,94 319,67 334,49 350,41 365,41 380,49 380,210" fill="#0A2540" fill-opacity="0.08"/>
+          <!-- curve -->
+          <polyline points="30,56 45,63 60,71 76,78 91,79 106,77 121,79 137,90 152,109 167,131 182,154 197,169 213,178 228,183 243,183 258,173 273,157 289,126 304,94 319,67 334,49 350,41 365,41 380,49" fill="none" stroke="#0A2540" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- ramp arrow -->
+          <path d="M 252 178 L 344 48 M 335 46 L 344 48 L 342 57" stroke="#F5A623" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="298" y="112" text-anchor="middle" font-size="10" font-weight="600" fill="#F5A623">+7,1 GW in 7 u</text>
+          <!-- buik marker -->
+          <circle cx="243" cy="183" r="4" fill="#06A77D"/>
+          <text x="243" y="200" text-anchor="middle" font-size="10" font-weight="600" fill="#06A77D">buik</text>
+          <!-- nek marker -->
+          <circle cx="350" cy="41" r="4" fill="#06A77D"/>
+          <text x="356" y="38" font-size="10" font-weight="600" fill="#06A77D">nek</text>
+        </svg>
+        <p class="sp-muted sp-tiny" style="text-align: center; margin-top: 0.2em;">
+          Netto vraag België, zondag 11 mei 2025 (Moederdag)
+        </p>
+      </div>
+      <div>
+        <p class="sp-small">Netto vraag = totale vraag min zonneproductie.</p>
+        <ul>
+          <li><strong>Buik:</strong> overdag duwt zon de netto vraag tot <span class="sp-accent-marine">~1,3 GW</span>.</li>
+          <li><strong>Nek:</strong> 's avonds valt de zon weg, vraag schiet naar <span class="sp-accent-marine">~8,5 GW</span>.</li>
+          <li>Van buik naar nek: <strong>+7,1 GW in 7 uur</strong>, ongeveer 1 GW per uur bij te schakelen.</li>
+        </ul>
+        <p class="sp-goed sp-small">
+          Precies wat trage centrales niet vlot halen, en wat batterijen wél kunnen: op het juiste moment leveren.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-bron">Bron: Elia Open Data, dataset ods001 (total load) en ods032 (zonne-productie), 11 mei 2025.</p>
+    <aside class="notes">
+      Term "duck curve" komt uit Californië, CAISO-rapport 2013 "What the duck curve tells us
+      about managing a green grid". Silhouet lijkt op een eend: platte buik door middag-zon,
+      steile nek bij zonsondergang. België zit nu in hetzelfde patroon, een orde kleiner
+      dan Californië (>13 GW ramp daar in 2023).
+
+      11 mei 2025 gekozen omdat: zondag + Moederdag = lage industriële basislast, dus de buik
+      is uitgesprokener. Die dag dekte zon 31 % van de totale dagvraag. PV-piek: 7,1 GW rond
+      13u op 11,1 GW geïnstalleerde capaciteit.
+
+      Link naar later in de deck: dit patroon is exact de reden waarom dynamische tarieven
+      (H2), thuisbatterijen (H4) en VPP's (H7) bestaan. Niet hier al uitleggen, rode draad
+      opbouwen.
+
+      Als iemand vraagt: ja, dit wordt in de komende jaren dieper, curtailment op zonnige
+      dagen neemt toe. Zie CREG/Elia adequacy studies.
+    </aside>
+  </section>
+
+  <!-- 1.6 — Grote batterijparken -->
   <section>
     <span class="sp-chapter-label">1 · Stroomnet</span>
     <h2>Een nieuwe speler: grote batterijparken</h2>
@@ -151,7 +228,7 @@
     </div>
 
     <p class="sp-goed sp-small">
-      Wat deze parken op gigaschaal doen, doet jouw thuisbatterij op kleine schaal. Onthoud dit.
+      Wat deze parken op gigaschaal doen, doet jouw thuisbatterij op kleine schaal. Hou dat in je achterhoofd.
     </p>
 
     <p class="sp-bron">Bron: ENGIE persbericht Vilvoorde (14 nov 2025); Power Technology op Green Turtle (2024).</p>

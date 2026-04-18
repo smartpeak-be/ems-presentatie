@@ -28,7 +28,14 @@ Gevalideerd op 2026-04-18.
 - **Fraunhofer, Fast Frequency Response with BESS.** [publica-rest.fraunhofer.de](https://publica-rest.fraunhofer.de/server/api/core/bitstreams/a4a6793c-1dfe-4272-ab05-0e6f24604270/content), BESS sub-seconde respons.
 - **Elia, FCR/aFRR/mFRR specificaties.** [elia.be/en/electricity-market-and-system/system-services/keeping-the-balance](https://www.elia.be/en/electricity-market-and-system/system-services/keeping-the-balance/fcr).
 
-### Grote batterijparken (slide 1.5)
+### Duck curve (slide 1.5)
+
+- **Elia Open Data, ods001 Total Load (historical).** [opendata.elia.be/explore/dataset/ods001](https://opendata.elia.be/explore/dataset/ods001/), kwart-uurlijkse metingen totale vraag Belgisch net.
+- **Elia Open Data, ods032 Photovoltaic production (historical).** [opendata.elia.be/explore/dataset/ods032](https://opendata.elia.be/explore/dataset/ods032/), kwart-uurlijkse PV-productie België.
+- Gekozen dag: **zondag 11 mei 2025** (Moederdag). Zondag + feestdag → lage industriële basislast, uitgesproken duck-silhouet. Piek-PV 7,1 GW rond 13u op 11,1 GW gemonitorde capaciteit. Buik netto vraag 1,3 GW om 14u, nek 8,5 GW om 21u, ramp +7,1 GW in 7 uur (~1 GW/u). PV dekte 31 % van totale dagvraag.
+- **CAISO, What the duck curve tells us about managing a green grid (2013).** Oorsprong van de term, voor speaker notes. [caiso.com](https://www.caiso.com/documents/flexibleresourceshelprenewables_fastfacts.pdf).
+
+### Grote batterijparken (slide 1.6)
 
 - **ENGIE, BESS Vilvoorde fully commissioned (14 nov 2025).** [corporate.engie.be](https://corporate.engie.be/en/press/release/engies-battery-storage-project-vilvoorde-fully-commissioned), 200 MW / 800 MWh, 15-jaar Elia CRM contract.
 - **ENGIE, BESS Drogenbos.** [corporate.engie.be](https://corporate.engie.be/en/press/release/engie-build-new-battery-park-drogenbos-expanding-its-battery-storage-capacity-belgium), ~100 MW / ~400 MWh, CRM toegekend.
