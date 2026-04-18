@@ -28,12 +28,16 @@
 :root {
   --sp-marine: #0A2540;
   --sp-marine-soft: #1E3A5F;
-  --sp-amber: #FFB400;
+  --sp-marine-2: #145488;
+  --sp-amber: #F5A623;
+  --sp-amber-soft: #FFF4E0;
+  --sp-red: #D62828;
   --sp-green: #06A77D;
+  --sp-green-soft: #E6F6EF;
   --sp-text: #1A202C;
   --sp-text-muted: #4A5568;
   --sp-bg: #FFFFFF;
-  --sp-bg-subtle: #F7FAFC;
+  --sp-bg-subtle: #F5F8FB;
   --sp-border: #E2E8F0;
 }
 
@@ -42,6 +46,19 @@
   font-size: 32px;
   color: var(--sp-text);
   background: var(--sp-bg);
+}
+
+/* Each slide has room at top for the chapter label and at bottom for sources.
+   We reserve that space with padding on the section so content never overlaps. */
+.reveal .slides > section {
+  padding: 56px 48px 64px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.reveal .slides > section > section {
+  padding: 56px 48px 64px;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .reveal h1,
@@ -54,16 +71,27 @@
   text-transform: none;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin-bottom: 0.5em;
+  margin: 0 0 0.5em;
 }
 
 .reveal h1 { font-size: 2.0em; }
-.reveal h2 { font-size: 1.5em; }
-.reveal h3 { font-size: 1.15em; color: var(--sp-marine-soft); }
+.reveal h2 { font-size: 1.35em; }
+.reveal h3 { font-size: 1.05em; color: var(--sp-marine-soft); }
+
+/* A coloured accent bar under the headline, signals the chapter. */
+.reveal h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--sp-amber);
+  border-radius: 2px;
+  margin-top: 0.35em;
+}
 
 .reveal p,
 .reveal li {
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--sp-text);
 }
 
@@ -75,27 +103,116 @@
   text-underline-offset: 3px;
 }
 
-.reveal .slide-number {
-  display: none;
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+}
+.reveal ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.35em;
+}
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--sp-amber);
+  border-radius: 2px;
+}
+.reveal ul ul li::before {
+  background: var(--sp-marine-2);
+  width: 6px;
+  height: 6px;
+  top: 0.6em;
 }
 
-.reveal .controls {
-  color: var(--sp-marine);
+.reveal ol {
+  padding-left: 1.4em;
+}
+.reveal ol li {
+  margin-bottom: 0.3em;
+}
+.reveal ol li::marker {
+  color: var(--sp-marine-2);
+  font-weight: 700;
 }
 
+.reveal table {
+  border-collapse: collapse;
+  margin: 0.8em 0;
+  font-size: 0.72em;
+}
+.reveal thead th {
+  text-align: left;
+  padding: 0.5em 1em;
+  background: var(--sp-marine);
+  color: var(--sp-bg);
+  font-weight: 600;
+}
+.reveal tbody td {
+  padding: 0.45em 1em;
+  border-bottom: 1px solid var(--sp-border);
+}
+.reveal tbody tr:last-child td {
+  border-bottom: none;
+}
+.reveal tbody tr.highlight td {
+  background: var(--sp-amber-soft);
+  font-weight: 600;
+}
+.reveal tbody tr.muted td {
+  color: var(--sp-text-muted);
+}
+
+/* Controls and progress */
+.reveal .slide-number { display: none; }
+.reveal .controls { color: var(--sp-marine); }
 .reveal .progress {
   color: var(--sp-amber);
-  height: 3px;
+  height: 4px;
 }
 
-/* Semantic classes for slide content */
-.reveal .sp-valkuil {
-  border-left: 6px solid var(--sp-amber);
-  padding: 0.5em 0 0.5em 1em;
+/* Chapter label — now in normal flow (no more absolute-overlap bugs). */
+.reveal .sp-chapter-label {
+  display: inline-block;
+  font-size: 0.42em;
+  color: var(--sp-marine-2);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+  padding: 0.25em 0.6em;
   background: var(--sp-bg-subtle);
-  font-size: 0.9em;
+  border-left: 3px solid var(--sp-amber);
+  border-radius: 2px;
 }
 
+/* Source citation at the bottom of the slide. Absolute so it always sits there. */
+.reveal .sp-bron {
+  position: absolute;
+  bottom: 20px;
+  left: 48px;
+  right: 48px;
+  font-size: 0.4em;
+  color: var(--sp-text-muted);
+  text-align: left;
+  font-style: italic;
+}
+
+/* Callout boxes for 'valkuil' (amber warning) and 'goed' (green positive) */
+.reveal .sp-valkuil {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.6em 1em;
+  background: var(--sp-amber-soft);
+  border-left: 6px solid var(--sp-amber);
+  border-radius: 4px;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
 .reveal .sp-valkuil::before {
   content: "Valkuil — ";
   font-weight: 700;
@@ -103,50 +220,143 @@
 }
 
 .reveal .sp-goed {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.6em 1em;
+  background: var(--sp-green-soft);
   border-left: 6px solid var(--sp-green);
-  padding: 0.5em 0 0.5em 1em;
-  background: var(--sp-bg-subtle);
+  border-radius: 4px;
+  font-size: 0.85em;
+  line-height: 1.4;
 }
 
-.reveal .sp-bron {
-  position: absolute;
-  bottom: 16px;
-  left: 24px;
-  right: 24px;
-  font-size: 0.45em;
-  color: var(--sp-text-muted);
-  text-align: left;
+/* Key-number block — used for big impactful stats */
+.reveal .sp-big {
+  display: block;
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--sp-marine);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0.1em 0 0.2em;
 }
-
-.reveal .sp-chapter-label {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  font-size: 0.5em;
+.reveal .sp-big.accent { color: var(--sp-amber); }
+.reveal .sp-big.green { color: var(--sp-green); }
+.reveal .sp-big.red { color: var(--sp-red); }
+.reveal .sp-big-label {
+  display: block;
+  font-size: 0.75em;
   color: var(--sp-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
+/* Horizontal grid layout for slide content */
+.reveal .sp-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin: 1em 0;
+  align-items: start;
+}
+.reveal .sp-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  margin: 1em 0;
+  align-items: start;
+}
+.reveal .sp-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8em;
+  margin: 1em 0;
+  align-items: start;
+}
+
+/* Card containers for grouped information */
+.reveal .sp-card {
+  padding: 0.9em 1em;
+  background: var(--sp-bg-subtle);
+  border-radius: 6px;
+  border: 1px solid var(--sp-border);
+  font-size: 0.8em;
+}
+.reveal .sp-card h3 {
+  margin: 0 0 0.3em;
+  font-size: 1em;
+}
+.reveal .sp-card h3::after { display: none; }
+.reveal .sp-card.marine {
+  background: var(--sp-marine);
+  color: var(--sp-bg);
+  border-color: var(--sp-marine);
+}
+.reveal .sp-card.marine h3,
+.reveal .sp-card.marine p { color: var(--sp-bg); }
+.reveal .sp-card.amber {
+  background: var(--sp-amber-soft);
+  border-color: var(--sp-amber);
+}
+.reveal .sp-card.green {
+  background: var(--sp-green-soft);
+  border-color: var(--sp-green);
+}
+
+/* Logo on title/closing slides — stays absolute */
 .reveal .sp-logo {
   position: absolute;
-  top: 16px;
-  left: 24px;
-  height: 48px;
+  top: 24px;
+  left: 48px;
+  height: 40px;
 }
 
 /* Title slide */
 .reveal .sp-title-slide {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
 }
-
 .reveal .sp-title-slide h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.3em;
+  font-size: 2.4em;
+  margin-bottom: 0.2em;
 }
-
+.reveal .sp-title-slide h1::after { display: none; }
 .reveal .sp-title-slide .sp-subtitle {
   color: var(--sp-text-muted);
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: 400;
+  margin-top: 0.4em;
 }
+.reveal .sp-title-slide::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, var(--sp-amber), var(--sp-marine));
+}
+
+/* Inline icons (for list items, stats, etc.) */
+.reveal .sp-icon {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  margin-right: 0.25em;
+  color: var(--sp-amber);
+}
+
+/* Utility classes */
+.reveal .sp-muted { color: var(--sp-text-muted); }
+.reveal .sp-accent { color: var(--sp-amber); font-weight: 600; }
+.reveal .sp-accent-marine { color: var(--sp-marine); font-weight: 600; }
+.reveal .sp-accent-green { color: var(--sp-green); font-weight: 600; }
+.reveal .sp-accent-red { color: var(--sp-red); font-weight: 600; }
+
+.reveal .sp-small { font-size: 0.78em; }
+.reveal .sp-tiny { font-size: 0.6em; }
