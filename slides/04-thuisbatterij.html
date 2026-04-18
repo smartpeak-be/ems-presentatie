@@ -46,9 +46,9 @@
 
     <div class="sp-card marine">
       <p class="sp-small">
-        <strong>Terugblik hoofdstuk 3:</strong> met enkel slimme sturing haalde je <span class="sp-accent-marine">35 tot 45%</span> zelfverbruik.
-        Met een batterij van 5 kWh erbij kom je typisch op <span class="sp-accent-marine">55 tot 65%</span>.
-        Met warmtepomp én EV volledig gestuurd loopt dat op tot <span class="sp-accent-marine">75 tot 80%</span>.
+        <strong style="color: #F5A623;">Terugblik hoofdstuk 3:</strong> met enkel slimme sturing haalde je <strong style="color: #F5A623;">35 tot 45%</strong> zelfverbruik.
+        Met een batterij van 5 kWh erbij kom je typisch op <strong style="color: #F5A623;">55 tot 65%</strong>.
+        Met warmtepomp én EV volledig gestuurd loopt dat op tot <strong style="color: #F5A623;">75 tot 80%</strong>.
       </p>
     </div>
 
@@ -86,20 +86,34 @@
 
     <div class="sp-card marine">
       <p class="sp-small">
-        De rekenregel: één gemiste piek kost je <strong style="color: #F5A623;">€45/kW × 12 maanden</strong>
-        in je gemiddelde. Eén gemist uur zelfverbruik kost je <strong style="color: #F5A623;">één keer €0,25</strong>.
-        Daarom prioriteert een goed ingestelde EMS piekscheren boven zelfverbruik.
+        <strong style="color: #F5A623;">Wat levert elk doel op?</strong>
+        Zelfverbruik is voorspelbaar: elke benutte kWh bespaart ongeveer <strong style="color: #F5A623;">€0,25</strong>,
+        dag in dag uit. Piekscheren is onvoorspelbaar: een gemiste maandpiek telt
+        voor <strong style="color: #F5A623;">1/12</strong> in je jaargemiddelde,
+        dus ordegrootte <strong style="color: #F5A623;">€3,75 per kW</strong>.
+      </p>
+      <p class="sp-small">
+        Daarom doet een goede EMS <strong style="color: #F5A623;">beide tegelijk</strong>:
+        zelfverbruik als basis, piekscheren als vangnet dat enkel capaciteit reserveert
+        wanneer een piek zich statistisch aandient. Capaciteit blind achter de hand houden,
+        kost elke dag aan gemist zelfverbruik.
       </p>
     </div>
 
-    <p class="sp-bron">Bron: EMS-dispatch literatuur (Xemex, AlphaESS BE-whitepaper, WATTMORE).</p>
+    <p class="sp-bron">Bron: Energent onderzoeksproject thuisbatterijen 2024; Comput. Electr. Eng. 2024 (hybride MPC+RL); Fluvius capaciteitstarief-definitie.</p>
     <aside class="notes">
-      Belangrijke nuance die je mondeling kan toevoegen: in de praktijk gaat een EMS
-      niet voor één doel "alles of niets", maar weegt hij ze af. De exacte weging hangt af van
-      contract (dynamisch of vast), verwacht verbruiksprofiel, en gedragsvoorkeur van de klant.
+      Kernnuance: de Energent-veldstudie liet zien dat piekscheren-alleen geen of
+      amper extra terugverdientijd oplevert, omdat het gemiste zelfverbruik tijdens
+      die reserveperiodes de capaciteitsbesparing opvreet. Peer-reviewed MPC/RL-literatuur
+      bevestigt: hybride aanpak wint.
 
-      Dit is ook het punt waar je impliciet kan aanstippen dat een eerlijke installateur
-      VRAAGT wat je doel is, niet zomaar een systeem dumpt dat één doel bedient.
+      Fluvius-rekenregel correct gebracht: één gemiste piek telt voor 1/12 van het
+      tariefpercentage in je jaargemiddelde (~€3,75/kW), niet het volledige €45/kW-bedrag.
+      De oude slide-tekst overdreef dat met factor 12.
+
+      Mondeling bij te voegen: de weging hangt af van contract (dynamisch of vast),
+      verbruiksprofiel en klantvoorkeur. Eerlijke installateur vráágt wat je doel is
+      en tweakt navenant, in plaats van blind voor één doel te dimmen.
     </aside>
   </section>
 
@@ -155,8 +169,8 @@
       </div>
       <div class="sp-card marine">
         <h3 style="color: #F5A623;">De BMS als bewaker</h3>
-        <ul style="color: var(--sp-bg);">
-          <li>Spanning per cel bewaakt 24/7.</li>
+        <ul>
+          <li>Spanning per cel bewaakt, 24/7.</li>
           <li>Temperatuurvoelers schakelen af boven 55 °C.</li>
           <li>Stroombegrenzing en kortsluitingsdetectie.</li>
           <li>Communiceert met de omvormer via CAN-bus.</li>
@@ -164,12 +178,23 @@
       </div>
     </div>
 
+    <div class="sp-card">
+      <p class="sp-small">
+        <strong>Ingebouwde brandblussing?</strong>
+        Niet standaard. Sommige merken (Alpha ESS, Huawei bij grotere units) voegen
+        een aerosol-pouch toe per module. Tesla, Sungrow en BYD kiezen bewust voor
+        passief: LFP-chemie, ventkanalen en BMS-bewaking.
+        De EU-regelgeving (2023/1542) vereist bewezen veiligheid onder thermal-event-testen,
+        niet per se een ingebouwd blussysteem.
+      </p>
+    </div>
+
     <p class="sp-muted sp-tiny">
       EU certificering anno 2026: IEC 62619 (cel), IEC 62933-5-2 (systeem),
       EU Batterijverordening 2023/1542, Synergrid C10/11, AREI-keuring.
     </p>
 
-    <p class="sp-bron">Bron: Chu et al. ChemElectroChem 2024; EPRI BESS Failure Database; EU Regulation 2023/1542.</p>
+    <p class="sp-bron">Bron: Chu et al. ChemElectroChem 2024; EPRI BESS Failure Database; EU Regulation 2023/1542; Sungrow UL 9540B-test 2025; Alpha ESS SMILE G3 documentatie.</p>
     <aside class="notes">
       Flag: voor residentiële BESS in Europa bestaan geen publieke branstatistieken.
       EPRI tracked enkel utility-scale (0,3% brandgerelateerde incidenten in 2024).
@@ -178,6 +203,13 @@
 
       Wel verdedigbaar: significant zeldzamer dan bv. lithium e-step-branden, en
       de meeste incidenten komen door installatiefouten, niet celdefecten.
+
+      Over ingebouwde blussing specifiek: Alpha ESS SMILE G3 vermeldt expliciet
+      een "miniature aerosol-based suppressant" per module. Huawei LUNA2000 in de
+      commerciële (grotere) lijn heeft FM-200/FK-5-1-12 op kabinetniveau; in
+      residentiële 5-21 kWh S1-serie enkel BMS + pack-level protectie.
+      Sungrow publiceerde in nov 2025 een UL 9540B-test op de SBH ZONDER actieve
+      blussing, wat aantoont dat passief design ook kan slagen.
     </aside>
   </section>
 
@@ -193,6 +225,7 @@
           <li>PV en batterij delen één DC-bus.</li>
           <li>Round-trip 94 tot 96 procent.</li>
           <li>Ideaal bij nieuwe installatie.</li>
+          <li>Batterij moet afgestemd zijn op de omvormer (compatibel merk én protocol). Minder keuze.</li>
         </ul>
       </div>
       <div class="sp-card amber">
@@ -201,15 +234,16 @@
           <li>Batterij naast bestaande PV-omvormer.</li>
           <li>Round-trip 88 tot 92 procent.</li>
           <li>Ideaal bij retrofit.</li>
+          <li>Werkt onafhankelijk van je huidige installatie: vrije keuze van batterij, geen protocol-afhankelijkheid.</li>
         </ul>
       </div>
     </div>
 
     <div class="sp-card">
       <p class="sp-small">
-        Verschil: ongeveer 3 tot 6 procentpunten efficiëntie.
+        Verschil in efficiëntie: ongeveer 3 tot 6 procentpunten.
         Over 15 jaar en 1.500 kWh per jaar is dat zo'n 700 tot 1.400 kWh die je verliest bij AC.
-        Niet dramatisch, wel relevant.
+        Niet dramatisch, wel relevant. Weeg dat af tegen de vrijheid om je batterij te kiezen los van je bestaande omvormer.
       </p>
     </div>
 
@@ -313,6 +347,10 @@
         <span class="sp-accent-marine">0,8 tot 1,5 kWh per kWp PV</span>.
         Voor een typisch Vlaams gezin met 4 kWp zon en 4.500 kWh verbruik:
         <span class="sp-accent">4 tot 6 kWh batterij</span>.
+      </p>
+      <p class="sp-small sp-muted">
+        Maar een vuistregel blijft een vuistregel. Je verbruiksprofiel, je panelen en je contract
+        wegen mee. In hoofdstuk 9 draaien we de simulatietool live, met jouw cijfers.
       </p>
     </div>
 
@@ -481,24 +519,34 @@
     <h2>De vijf cowboy-tactieken</h2>
 
     <ol style="font-size: 0.85em; line-height: 1.7;">
-      <li><strong>Oversizing voor marge.</strong> Grotere quote = grotere winst voor de verkoper.</li>
-      <li><strong>ROI op best-case.</strong> Injectie aan crisisprijzen, geen degradatie, cycli-claim hoger dan de garantie zelf.</li>
-      <li><strong>Vendor lock-in.</strong> Gesloten clouds, geen data-export, verplichte internetverbinding voor garantie.</li>
-      <li><strong>Vage garantiepraat.</strong> "80% na 10 jaar" op een clausule die 60 tot 70% garandeert.</li>
-      <li><strong>Slechte installatie.</strong> In Vlaanderen bestaat anno 2026 nog geen RESCert voor batterij-installateurs.</li>
+      <li><strong>Oversizing voor marge.</strong> Grotere offerte = grotere winst. Te grote batterij = minder cycli, dus minder waarde per kWh geïnstalleerd.</li>
+      <li><strong>ROI op best-case.</strong> Injectie aan crisisprijzen, geen veroudering, cycli-claims hoger dan de garantie zelf.</li>
+      <li><strong>Agressieve verkoop en vage totaalprijs.</strong> Cold-call, deur-aan-deur, druk om meteen te tekenen, onduidelijke totaalprijs, verwijzing naar premies die al afgelopen zijn.</li>
+      <li><strong>Vage garantietaal.</strong> "80% na 10 jaar" als kop, maar de clausule geldt voor jaren óf cycli óf MWh-doorvoer, wat het eerst tikt. En de retentie zakt vaak naar 60-70%.</li>
+      <li><strong>Slechte installatie en vendor lock-in.</strong> Geen RESCert-erkenning voor batterij-installateurs in Vlaanderen. Gesloten clouds, verplichte internetverbinding, software-updates die functionaliteit slopen.</li>
     </ol>
 
     <div class="sp-card amber">
       <p class="sp-small">
-        Simpele test: vraag om de garantievoorwaarden én om een ROI met zowel huidige als lagere injectievergoeding.
-        Wie dat niet geeft, heeft iets te verbergen.
+        Simpele test: vraag de garantievoorwaarden (pdf), een schriftelijke totaalprijs,
+        en een ROI met zowel huidige als lagere injectievergoeding.
+        Wie dat niet ter plekke toont, heeft iets te verbergen.
       </p>
     </div>
 
-    <p class="sp-bron">Bron: synthese van hoofdstuk 4. Techlink/VEKA publieke oproep voor RESCert-voor-BESS (Solar Magazine NL).</p>
+    <p class="sp-bron">Bron: Test-Aankoop publieke klachten (o.a. Balti Solar); Ombudsdienst Energie 2024; ACM honderden klachten misleidende verkoop; Change.inc thuisbatterij-bubbel 2025; Techlink/VEKA RESCert-oproep.</p>
     <aside class="notes">
       Kernboodschap van het hele hoofdstuk, samengebald. Nadruk: niet alle installateurs doen dit,
       maar wie deze tactieken ziet heeft nu een vocabulaire om ze te benoemen.
+
+      Klachtendata-context:
+      - ACM (NL) kreeg in 2024-2025 honderden klachten over misleidende verkoop en
+        agressieve cold-calls rond thuisbatterijen (Opslagplan, Go-Plug, Power Solutions, e.a.).
+      - Test-Aankoop heeft Belgische klachten over defecte sturing en weggevaagde
+        smart-functionaliteit na updates (Balti Solar).
+      - Ombudsdienst Energie BE rapporteerde in 2024 vooral meter- en contractklachten;
+        een apart thuisbatterij-dossier ontbreekt nog, maar Techlink+VEKA vragen zelf
+        om een RESCert-label voor BESS-installateurs.
 
       Belangrijk voor SmartPeak-positie: jullie proberen hier NIET te zeggen "wij doen dit niet".
       Dat zou expliciet zelfpromotie zijn. In plaats daarvan: je publiek heeft nu de tools, en

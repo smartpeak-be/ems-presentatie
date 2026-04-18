@@ -294,7 +294,11 @@
   border-color: var(--sp-marine);
 }
 .reveal .sp-card.marine h3,
-.reveal .sp-card.marine p { color: var(--sp-bg); }
+.reveal .sp-card.marine p,
+.reveal .sp-card.marine li,
+.reveal .sp-card.marine ul li,
+.reveal .sp-card.marine strong { color: var(--sp-bg); }
+.reveal .sp-card.marine ul li::before { background: var(--sp-amber); }
 .reveal .sp-card.amber {
   background: var(--sp-amber-soft);
   border-color: var(--sp-amber);
