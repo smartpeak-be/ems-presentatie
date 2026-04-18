@@ -21,13 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install decktape dependencies (Chromium)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-
-      - name: Install decktape
-        run: npm install -g decktape@3.12.0
+      - name: Install Puppeteer (bundles its own Chromium)
+        run: npm install puppeteer@23
 
       - name: Start local server
         run: |
@@ -35,16 +30,8 @@ jobs:
           echo $! > server.pid
           sleep 2
 
-      - name: Generate PDF
-        env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
-        run: |
-          decktape reveal \
-            --size 1280x720 \
-            --load-pause 8000 \
-            --pause 300 \
-            http://localhost:8765/?print-pdf \
-            handout.pdf
+      - name: Generate PDF via headless Chromium
+        run: node scripts/make-pdf.mjs
 
       - name: Stop server
         run: kill "$(cat server.pid)" || true
