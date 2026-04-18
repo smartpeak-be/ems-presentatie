@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartPeak — EMS & thuisbatterij</title>
+
+  <link rel="stylesheet" href="vendor/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="vendor/reveal.js/dist/theme/white.css" id="theme" />
+  <link rel="stylesheet" href="css/reveal-overrides.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides" id="slides-root">
+      <!-- Slides worden hier geïnjecteerd via loader.js -->
+    </div>
+  </div>
+
+  <script type="module">
+    const chapters = [
+      '00-opener',
+      '01-stroomnet',
+      '02-waar-sta-je-nu',
+      '03-zonnepanelen',
+      '04-thuisbatterij',
+      '05-ems-brein',
+      '06-uitbreiding',
+      '07-vpp-netdiensten',
+      '08-nuance-regio',
+      '09-roi-tool',
+      '10-afsluiter',
+      '99-bronnen',
+    ];
+
+    const slidesRoot = document.getElementById('slides-root');
+    for (const chapter of chapters) {
+      const response = await fetch(`slides/${chapter}.html`);
+      if (!response.ok) {
+        console.error(`Failed to load slides/${chapter}.html: ${response.status}`);
+        continue;
+      }
+      const html = await response.text();
+      slidesRoot.insertAdjacentHTML('beforeend', html);
+    }
+
+    // Import and init Reveal only after slides are loaded
+    const mainModule = await import('./js/main.js');
+  </script>
+</body>
+</html>
