@@ -1,0 +1,81 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install decktape dependencies (Chromium)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Install decktape
+        run: npm install -g decktape@3.12.0
+
+      - name: Start local server
+        run: |
+          python3 -m http.server 8765 &>server.log &
+          echo $! > server.pid
+          sleep 2
+
+      - name: Generate PDF
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+        run: |
+          decktape reveal \
+            --size 1280x720 \
+            --load-pause 500 \
+            http://localhost:8765/?print-pdf \
+            handout.pdf
+
+      - name: Stop server
+        run: kill "$(cat server.pid)" || true
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: handout-pdf
+          path: handout.pdf
+          if-no-files-found: error
+
+  deploy:
+    needs: build-pdf
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: handout-pdf
+          path: .
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
