@@ -41,7 +41,8 @@ jobs:
         run: |
           decktape reveal \
             --size 1280x720 \
-            --load-pause 500 \
+            --load-pause 8000 \
+            --pause 300 \
             http://localhost:8765/?print-pdf \
             handout.pdf
 

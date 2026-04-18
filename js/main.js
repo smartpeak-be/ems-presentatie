@@ -29,6 +29,11 @@ const deck = new Reveal({
   plugins: [Notes],
 });
 
+// Expose the deck instance globally so tools that expect the classic
+// script-tag API (e.g. decktape, which probes window.Reveal.getProgress())
+// can drive the deck. With ESM imports, Reveal is a class, not a singleton.
+window.Reveal = deck;
+
 deck.initialize();
 
 window.addEventListener('keydown', (e) => {
