@@ -1,4 +1,4 @@
-# SmartPeak — EMS-presentatie
+# SmartPeak, EMS-presentatie
 
 Een herbruikbare web-based presentatie over EMS en thuisbatterijen, gebouwd op Reveal.js.
 

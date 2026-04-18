@@ -1,12 +1,238 @@
-<!-- Hoofdstuk 5 — Het slimme brein: EMS -->
+<!-- Hoofdstuk 5: Het slimme brein, EMS -->
 <section>
+
+  <!-- 5.1: Opener -->
   <section>
     <span class="sp-chapter-label">5 · EMS</span>
-    <h2>Het slimme brein</h2>
-    <p style="color: var(--sp-text-muted);">EMS functioneel, orchestratie, dynamische tarieven. Home Assistant terloops.</p>
+    <h2>De hardware is maar de helft</h2>
+    <p class="sp-muted sp-small">
+      Een batterij zonder sturing is een duur vat zonder kraan. Het EMS beslist
+      seconde per seconde wat er gebeurt, en daar valt of staat je rendement mee.
+    </p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 5. Geen protocollen-slide
-      (bewuste keuze). Valkuil: gesloten ecosystemen + vage meerwaarde.
+      Brug-slide, 30 sec. Expliciet de link leggen met hoofdstuk 4: we hebben nu
+      een batterij, een omvormer, misschien een auto. Dat is een verzameling dozen.
+      Pas met een brein erin wordt het een systeem dat doet wat jij wil.
+
+      EMS staat voor Energy Management System. Iedereen noemt het anders:
+      energy manager, hybrid controller, smart home energy system. Functioneel
+      gezien bedoelt men meestal hetzelfde.
     </aside>
   </section>
+
+  <!-- 5.2: Wat doet het functioneel -->
+  <section>
+    <span class="sp-chapter-label">5 · EMS</span>
+    <h2>Wat doet een EMS concreet?</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>Het meet</h3>
+        <ul>
+          <li>Verbruik per kring, per minuut.</li>
+          <li>PV-opbrengst, batterij-SOC.</li>
+          <li>Netinjectie en netafname.</li>
+        </ul>
+      </div>
+      <div class="sp-card">
+        <h3>Het voorspelt</h3>
+        <ul>
+          <li>Zon morgen: weerdata.</li>
+          <li>Prijs morgen: day-ahead curve.</li>
+          <li>Verbruik: patroon van je woning.</li>
+        </ul>
+      </div>
+      <div class="sp-card amber">
+        <h3>Het beslist</h3>
+        <ul>
+          <li>Laden, ontladen, of stil.</li>
+          <li>Piek bewaken: capaciteitstarief.</li>
+          <li>EV en warmtepomp timen.</li>
+        </ul>
+      </div>
+      <div class="sp-card green">
+        <h3>Het stuurt bij</h3>
+        <ul>
+          <li>Kwartier per kwartier hercalcu&shy;leren.</li>
+          <li>Fout van 10 minuten geleden corrigeren.</li>
+          <li>Grenzen bewaken (SOC, keuring).</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-small">
+      Het echte werk zit in de vierde kolom. Meten en voorspellen doet iedereen ongeveer even goed;
+      bijsturen is het verschil tussen een goed en een middelmatig systeem.
+    </p>
+
+    <p class="sp-bron">Bron: AlphaESS EMS-architectuur, Fronius GEN24 controller-docs, SolarEdge Energy Manager, Home Assistant Energy-integratie.</p>
+    <aside class="notes">
+      Kerngedachte: een EMS is geen dashboard, dat is de bijproducten. Het is een regelaar
+      die permanent beslissingen neemt. De kwaliteit van die beslissingen is de enige vraag die telt.
+
+      Concreet voorbeeld voor de zaal: om 14u schijnt de zon, batterij zit op 80 %, je auto
+      komt thuis om 17u en je dynamisch tarief piekt tussen 18u en 20u. Een goed EMS laadt
+      de batterij vol tegen 16u, laadt de auto uit PV-overschot tussen 14u en 17u, en ontlaadt
+      batterij + eventueel V2G tussen 18u en 20u. Een slecht EMS gooit PV-overschot op het net
+      aan 4 cent en koopt 's avonds terug aan 35 cent.
+
+      Niet alles technisch maken: noem "het beslist en stuurt bij" als de twee moeilijke stappen,
+      geef één voorbeeld, laat het daarbij.
+    </aside>
+  </section>
+
+  <!-- 5.3: Dynamisch tarief + terugverwijzing rode draad -->
+  <section>
+    <span class="sp-chapter-label">5 · EMS</span>
+    <h2>Dynamisch wordt pas rendabel met een brein</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <p class="sp-small">
+          Op een dynamisch contract rolt de prijs elk uur. Het verschil tussen goedkoopste
+          en duurste uur schommelt vandaag tussen <strong>8 en 20 cent per kWh</strong>.
+        </p>
+        <p class="sp-small">
+          Zonder EMS blijft dat verschil ongebruikt: je laadt als je toevallig thuis bent,
+          je ontlaadt als je toevallig verbruikt.
+        </p>
+        <p class="sp-small">
+          Met EMS: laden om 03u aan 4 cent, ontladen om 19u aan 32 cent, elke dag opnieuw.
+        </p>
+      </div>
+      <div class="sp-card marine">
+        <p class="sp-small" style="color: var(--sp-bg);">
+          Terug naar de rode draad: die <strong style="color: var(--sp-amber);">spread krimpt</strong>.
+        </p>
+        <ul style="color: var(--sp-bg);">
+          <li>Meer prosumers drukken dagprijzen.</li>
+          <li>Grote batterijparken (Vilvoorde, Drogenbos) egaliseren.</li>
+          <li>Arbitrage voor particulieren blijft werken, minder sterk dan 2023.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-tiny">
+      Dit is versimpeld. De werkelijke arbitrage-opbrengst hangt af van cycli-verlies, BTW,
+      distributiekost (enkel op afname), en de keuze tussen arbitrage en piekscheren.
+    </p>
+
+    <p class="sp-bron">Bron: EPEX SPOT BE day-ahead 2024-2025; Aurora Energy Research "Chasing the Peak" 2024; CREG Monitoring 2024.</p>
+    <aside class="notes">
+      Dit is de derde keer dat "markt egaliseert zichzelf" terugkeert (na hoofdstuk 1 en 2).
+      Belangrijk om consistent te blijven: arbitrage werkt vandaag, niet zo sterk morgen,
+      vermoedelijk helemaal geen cash-cow in 2030. Wie vandaag een EMS koopt voor arbitrage
+      alleen, koopt een use-case die wegvloeit.
+
+      Typische jaaropbrengst arbitrage 2026 in BE: 100 tot 250 euro op een 10 kWh batterij,
+      bovenop zelfverbruik. Dat is afhankelijk van leverancier, cycli-limiet en het al dan niet
+      combineren met piekscheren.
+
+      De amber-tekst in de marine-card: de spread krimpt. Dat is de kernboodschap die de zaal
+      mag meenemen. Niet met drama, gewoon als feit: geniet van het voordeel nu het er is,
+      reken er geen 15 jaar op.
+    </aside>
+  </section>
+
+  <!-- 5.4: Openheid, Home Assistant -->
+  <section>
+    <span class="sp-chapter-label">5 · EMS</span>
+    <h2>Open of gesloten?</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>Default-EMS van de fabrikant</h3>
+        <ul>
+          <li>Werkt out of the box.</li>
+          <li>Eén app, één login.</li>
+          <li>Beslissingen zijn een black box.</li>
+          <li>Minder flexibel bij nieuwe hardware.</li>
+        </ul>
+      </div>
+      <div class="sp-card green">
+        <h3>Open lagen (bv. Home Assistant)</h3>
+        <ul>
+          <li>Zichtbaar wat er gebeurt, per kring.</li>
+          <li>Eigen regels bovenop de default.</li>
+          <li>Koppelt merken aan elkaar.</li>
+          <li>Meer setup, meer zelf doen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-small">
+      Beide zijn verdedigbaar. De vraag is niet "welke is beter", wel: kan je er bij?
+      Kan je zien wat het systeem beslist, en ingrijpen als het iets stoms doet?
+    </p>
+
+    <p class="sp-bron">Bron: Home Assistant Energy Dashboard docs; EVCC project (open-source EV-ladingbeheer); ervaring SmartPeak klantprofielen.</p>
+    <aside class="notes">
+      Home Assistant alleen high-level vermelden, niet verkopen. Het is een voorbeeld
+      van wat "open" kan betekenen, niet een aanbeveling voor iedereen. Voor 80 % van
+      de klanten is de default-app van de omvormer prima.
+
+      Belangrijke boodschap: de keuze open of gesloten is niet binair.
+      Fronius, SolarEdge en AlphaESS publiceren bv. lokale API's, sommige Huawei en Tesla
+      niet. Dat bepaalt of jij later kan uitbreiden.
+
+      Spreker-nuance: SmartPeak installeert met de default-software van de hardware,
+      Home Assistant op vraag. We pushen geen abonnement-EMS-platform, geen eigen cloud.
+      Als iemand dit zelf wil uitbreiden kan dat, als iemand dit nooit wil openen
+      ook goed. Eerlijkheid eerst.
+    </aside>
+  </section>
+
+  <!-- 5.5: Valkuil cumulatief -->
+  <section>
+    <span class="sp-chapter-label">5 · EMS</span>
+    <h2>Drie cowboy-tactieken rond het EMS</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card amber">
+        <h3>Vage meerwaarde</h3>
+        <p class="sp-small">
+          "Onze AI optimaliseert automatisch." Vraag: toon mij het dashboard
+          van een bestaande klant, met reële euro's.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Gesloten ecosysteem</h3>
+        <p class="sp-small">
+          Omvormer en EMS verplicht van één merk, geen lokale data-uitgang,
+          garantie vervalt bij ander merk erbij.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Abonnement voor data</h3>
+        <p class="sp-small">
+          Je hebt hardware gekocht, maar je ziet het verbruik per kring enkel
+          als je maandelijks betaalt. Dat is geen EMS, dat is verhuur.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-valkuil sp-small">
+      Drie vragen voor een installateur: kan ik het dashboard van een bestaande installatie zien?
+      Kan ik mijn data lokaal uitlezen? Vervalt er iets in mijn garantie als ik later uitbreid?
+    </p>
+
+    <p class="sp-bron">Bron: Huawei FusionSolar licentievoorwaarden; Tesla Powerwall API-beperkingen; SmartPeak klantgesprekken 2024-2026.</p>
+    <aside class="notes">
+      Deze drie zijn de meest voorkomende cowboy-tactieken rond het EMS-deel van een installatie.
+      Ze verschijnen vaker in 2026 omdat installateurs merken dat hardware-marge krimpt
+      en software-abonnement een nieuwe cash-stream vormt.
+
+      Concrete voorbeelden die je mondeling mag toevoegen:
+      - Tesla Powerwall 3: lokale API is beperkt, Tesla controleert de prioritering.
+      - Huawei FusionSolar: volledige functionaliteit vergt cloud-account, lokaal Modbus is uitgebreid
+        maar commissioning vereist de app.
+      - Sommige installateurs bieden een "Energy Insights"-abonnement aan 9 tot 15 euro per maand.
+        Check wat daar écht in zit: vaak is het enkel een nettere grafiek van data die je
+        gratis uit de omvormer krijgt.
+
+      De drie vragen op de slide: die drie moet de zaal letterlijk onthouden. Die zitten
+      ook op de handout.
+    </aside>
+  </section>
+
 </section>

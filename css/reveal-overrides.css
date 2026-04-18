@@ -214,7 +214,7 @@
   line-height: 1.4;
 }
 .reveal .sp-valkuil::before {
-  content: "Valkuil — ";
+  content: "Valkuil: ";
   font-weight: 700;
   color: var(--sp-amber);
 }

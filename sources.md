@@ -203,7 +203,41 @@ Gevalideerd op 2026-04-18.
 
 ## Hoofdstuk 5, EMS
 
-_Wordt aangevuld._
+Gevalideerd op 2026-04-18.
+
+### Functionele EMS-architectuur (slide 5.2)
+
+- **AlphaESS SMILE-B3 / SMILE-T10 EMS-documentatie.** [alphaess.com/products/smile5](https://www.alphaess.com/products/smile5). Operator-mode prioriteiten (self-consumption, peak-shaving, time-of-use), BMS-integratie via CAN.
+- **Fronius GEN24 controller-documentation.** [fronius.com](https://www.fronius.com/en/solar-energy/installers-partners/technical-data/symo-gen24-plus). Lokale Modbus-TCP, cloud-optional, energy-management-rules configureerbaar lokaal.
+- **SolarEdge Energy Manager / Home Hub.** [solaredge.com](https://www.solaredge.com/products/home-hub-inverter). Smart-energy-devices, dynamic-load-management, backup-interface.
+- **Home Assistant Energy-integratie.** [home-assistant.io/docs/energy](https://www.home-assistant.io/docs/energy/). Openen voorbeelden van custom EMS-logica bovenop fabrikant-default.
+
+### Dynamisch tarief, arbitrage, spread-compressie (slide 5.3)
+
+- **EPEX SPOT Belgium day-ahead historische prijzen.** [epexspot.com/en/market-data](https://www.epexspot.com/en/market-data). Delta goedkoopste tot duurste uur in 2024-2025 varieert sterk per dag; 8-20 cent/kWh is typische bandbreedte.
+- **Aurora Energy Research, Chasing the Peak (2024).** Peak-to-trough compressie NL/BE/DE, eerder geciteerd in H2-sources.
+- **CREG Monitoring Report 2024.** [creg.be/nl/publicaties](https://www.creg.be/nl/publicaties). Residentiële dynamische-contract-statistieken.
+- **ENGIE BESS Vilvoorde (200 MW).** [corporate.engie.be](https://corporate.engie.be/en/press/release/engies-battery-storage-project-vilvoorde-fully-commissioned), eerder geciteerd in H1. Illustreert industriële arbitrage-concurrentie op dezelfde intraday-spread.
+
+### Open versus gesloten EMS (slide 5.4)
+
+- **Home Assistant Energy Dashboard.** [home-assistant.io/docs/energy](https://www.home-assistant.io/docs/energy/).
+- **EVCC (open-source EV-ladingbeheer).** [evcc.io](https://evcc.io/). Koppelt omvormers, batterijen, laadpalen van verschillende merken.
+- **Fronius Solar.API lokaal.** [fronius.com Solar-API documentation](https://www.fronius.com/QR-link/0101). Lokale JSON-API zonder cloud-verplichting.
+- **Huawei FusionSolar licentie en cloud-vereisten.** [solar.huawei.com](https://solar.huawei.com/). Volledige configuratie via SmartLogger/FusionSolar-app, lokaal Modbus beschikbaar maar commissioning-afhankelijk.
+- **Tesla Powerwall local-API scope.** [tesla.com](https://www.tesla.com/support/energy/powerwall). Beperkte lokale endpoints, prioritering bepaald door Tesla-cloud.
+
+### Cowboy-tactieken EMS (slide 5.5)
+
+- Eigen observatie SmartPeak, 2024-2026 klantgesprekken: "Energy Insights"-abonnementen 9 tot 15 euro/maand voor dashboards die fabrikant-default al gratis biedt.
+- **Tesla Powerwall Gateway 3 API-beperkingen en eigen-prioritering.** Technische review community (Tesla Motors Club forum, open-source pypowerwall project).
+- **Huawei FusionSolar licentievoorwaarden.** Vereist registered installer voor initial commissioning, klant heeft geen volledige lokale controle zonder installateur-account.
+
+### Nuances in speaker notes (niet op slide)
+
+- "De markt egaliseert zichzelf"-draad komt hier voor de derde keer (na H1 en H2), en nogmaals in H7. Bewaak consistentie: spread krimpt, arbitrage blijft positief maar minder sterk.
+- SmartPeak-positie: geen eigen EMS-platform, default-software van hardware, Home Assistant op vraag. Dit is impliciet in slide 5.4 maar nooit expliciet benoemd (positioneringsregel).
+- "Toon mij het dashboard van een bestaande klant"-challenge (slide 5.5) is een concrete test die publiek letterlijk mee naar huis kan nemen. Komt ook terug in H9 ROI-checklist.
 
 ## Hoofdstuk 6, Uitbreiding
 
