@@ -43,7 +43,48 @@ Gevalideerd op 2026-04-18.
 
 ## Hoofdstuk 2 — Je factuur
 
-_Wordt aangevuld. Expliciet te verifiëren: exacte Fluvius-mechaniek capaciteitstarief._
+Gevalideerd op 2026-04-18.
+
+### Capaciteitstarief mechaniek (slides 2.2 en 2.3)
+
+- **Fluvius — Capaciteitstarief digitale meter.** [fluvius.be/nl/thema/meters-en-meterstanden/digitale-meter/capaciteitstarief](https://www.fluvius.be/nl/thema/meters-en-meterstanden/digitale-meter/capaciteitstarief) — kwartiermetingen, maandpiek, glijdend 12-maands gemiddelde, 2,5 kW minimumdrempel.
+- **VREG — Tariefmethodologie 2025-2028.** [vreg.be/nl/tariefmethodologie](https://www.vreg.be/nl/tariefmethodologie) — kaderregelgeving gereguleerde tarieven.
+- **VREG — Nieuwe nettarieven (capaciteitstarief invoering 1 jan 2023).** [vreg.be/nl/nieuwe-nettarieven](https://www.vreg.be/nl/nieuwe-nettarieven).
+
+**Let op:** exact €/kW-tarief voor 2026 valt te verifiëren in de definitieve VREG-tariefbeslissing van eind 2025. €45 in de slide is ordegrootte (€44-47 indicatief voor Fluvius-gebied), geen exacte waarde.
+
+### Factuur-opbouw (slide 2.1)
+
+- **VREG — Jouw elektriciteitsfactuur ontleed.** [vreg.be/nl/jouw-elektriciteitsfactuur-ontleed](https://www.vreg.be/nl/jouw-elektriciteitsfactuur-ontleed) — gedetailleerde uitsplitsing per component.
+- **Fluvius — Nettarieven.** [fluvius.be/nl/thema/factuur-en-tarieven/nettarieven](https://www.fluvius.be/nl/thema/factuur-en-tarieven/nettarieven).
+- **FOD Financiën — Verlaagd btw-tarief 6 % op elektriciteit, permanent sinds april 2023.**
+- **CREG — Jaarlijkse rapporten residentiële elektriciteitsprijzen.** [creg.be/nl/publicaties](https://www.creg.be/nl/publicaties).
+
+### Vast / dynamisch contracten (slide 2.4)
+
+- **VREG V-Test (vergelijkingstool).** [vtest.vreg.be](https://vtest.vreg.be) — actueel overzicht per leverancier.
+- **VREG Marktmonitor.** [vreg.be/nl/marktmonitor](https://www.vreg.be/nl/marktmonitor).
+- **EPEX SPOT — BE day-ahead markt.** [epexspot.com](https://www.epexspot.com/en/market-data) — uurprijzen waar dynamische contracten op steunen.
+- **Engie Drive stopzetting eind 2023** — algemeen persbericht / marktmonitor VREG.
+
+### Injectievergoeding (genoemd in speaker-notes hoofdstuk 2 + slide 2.5)
+
+- **VREG — Overzicht injectievergoedingen.** [vreg.be/nl/injectietarief](https://www.vreg.be/nl/injectietarief) — actuele tarieven per leverancier.
+- **Fluvius — Digitale meter en zonnepanelen.** [fluvius.be/nl/thema/zonnepanelen/digitale-meter-en-zonnepanelen](https://www.fluvius.be/nl/thema/zonnepanelen/digitale-meter-en-zonnepanelen).
+
+### Negatieve prijs-uren en spread-compressie (slide 2.5)
+
+- **Elia — Transparantie data (day-ahead prijs).** [elia.be/en/grid-data/transparency](https://www.elia.be/en/grid-data/transparency).
+- **CREG — Monitoring report elektriciteitsmarkt, jaarverslag 2024.** [creg.be/nl/publicaties](https://www.creg.be/nl/publicaties).
+- **EMBER — European Power Review 2025.** [ember-energy.org](https://ember-energy.org).
+- **Aurora Energy Research — "Chasing the Peak" 2024.** — peak-to-trough spread-analyse NL/BE/DE: €110/MWh (2022) → €60-80/MWh (2024) → geprojecteerd €40-60/MWh (2026-2028).
+- **SolarPower Europe — European Market Outlook 2024-2028.**
+
+### Nuances in speaker notes (niet op slide)
+
+- Exacte negatieve-uren-tellingen 2024-2025 variëren tussen bronnen (EPEX, CREG, Elia) wegens verschillende aggregatie (MTU-uren vs klokuren). 200h / 450h zijn afgeronde ordegroottes.
+- Digitale meter rolluit: 85-90% van Vlaamse aansluitingen eind 2025. 10-15% heeft nog klassieke meter → betaalt forfaitair 2,5 kW minimum.
+- EPEX heeft in juni 2025 kwartier-prijzen op intraday; day-ahead kwartier-prijzen volgen. Leveranciers beginnen traag te ondersteunen.
 
 ## Hoofdstuk 3 — Zonnepanelen
 

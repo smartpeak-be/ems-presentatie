@@ -1,13 +1,165 @@
 <!-- Hoofdstuk 2 — Waar sta je nu? -->
 <section>
+
+  <!-- 2.1 — Opener / factuur-opbouw -->
   <section>
     <span class="sp-chapter-label">2 · Je factuur</span>
-    <h2>Waar sta je nu?</h2>
-    <p style="color: var(--sp-text-muted);">Factuur: verbruik + capaciteitstarief + injectie + vast/dynamisch. Slimme meter.</p>
+    <h2>Wat betaal je eigenlijk voor stroom?</h2>
+    <table style="font-size: 0.7em; margin: 0.8em auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--sp-border);">
+          <th style="padding: 0.4em 1em; text-align: left;">Deel</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Wat</th>
+          <th style="padding: 0.4em 1em; text-align: right;">Aandeel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 0.3em 1em;">Energie</td><td style="padding: 0.3em 1em;">De kWh's zelf — waar je <em>contract</em> over gaat</td><td style="padding: 0.3em 1em; text-align: right;">± 40 %</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Nettarief</td><td style="padding: 0.3em 1em;">Fluvius + Elia, incl. <strong>capaciteitstarief</strong></td><td style="padding: 0.3em 1em; text-align: right;">± 35 %</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Heffingen</td><td style="padding: 0.3em 1em;">Federale accijns, Vlaamse heffing, ODV</td><td style="padding: 0.3em 1em; text-align: right;">± 15 %</td></tr>
+        <tr><td style="padding: 0.3em 1em;">Btw</td><td style="padding: 0.3em 1em;">6 %, permanent sinds 2023</td><td style="padding: 0.3em 1em; text-align: right;">6 %</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.7em; color: var(--sp-text-muted); margin-top: 0.3em;">
+      Met alleen een <em>goedkoper contract</em> verlaag je hoogstens dat eerste deel.
+    </p>
+    <p class="sp-bron">Bron: VREG factuurcheck 2026; Fluvius nettarievenoverzicht.</p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 2. Nuance:
-      exacte Fluvius-mechaniek capaciteitstarief (maandpiek + glijdend gemiddelde) verifiëren.
-      Valkuil: dynamisch contract = krimpende marges.
+      Kern: de factuur is méér dan "kWh × tarief". Een goedkoop contract raakt enkel
+      het eerste deel. Nettarief + heffingen zijn vast, daar kan je met gedrag
+      (niet met prijsjacht) iets aan doen.
+
+      Aandelen zijn indicatief voor een gemiddeld Vlaams gezin anno 2026. Voor prosumers
+      schuift de verhouding omdat hun afname lager is.
     </aside>
   </section>
+
+  <!-- 2.2 — Capaciteitstarief: mechaniek -->
+  <section>
+    <span class="sp-chapter-label">2 · Je factuur</span>
+    <h2>Het capaciteitstarief — hoe werkt het?</h2>
+    <ul style="font-size: 0.78em; line-height: 1.7;">
+      <li>Je digitale meter meet elk <strong>kwartier</strong> je gemiddelde vermogen.</li>
+      <li>Per maand houdt Fluvius je <strong>hoogste kwartier</strong> bij.</li>
+      <li>Je tarief rekent op het <strong>gemiddelde van de voorbije 12 maandpieken</strong>.</li>
+      <li>Ondergrens: <strong>2,5 kW</strong>. Daaronder reken je sowieso 2,5 kW af.</li>
+    </ul>
+    <p style="font-size: 0.75em; margin-top: 0.6em;">
+      Indicatief 2026: ~€45 per kW per jaar. Eén slechte piek beïnvloedt <em>12 maanden</em>.
+    </p>
+    <p class="sp-bron">Bron: Fluvius — Capaciteitstarief digitale meter; VREG tariefmethodologie 2025-2028.</p>
+    <aside class="notes">
+      Dit is dé technische slide. Rustig uitspreken.
+
+      Voorbeeldje dat je live kan geven: als je gezin normaal max 3 kW piekt en je zet
+      één keer oven + boiler + wasmachine + fornuis tegelijk aan (bv. 6 kW voor één
+      kwartier), dan zit die 6 kW 12 maanden in je gemiddelde.
+
+      Exact tarief 2026 te verifiëren in VREG-beslissing eind 2025 / begin 2026.
+      €45/kW is de ordegrootte voor Fluvius-gebied.
+    </aside>
+  </section>
+
+  <!-- 2.3 — Capaciteitstarief: mechaniek vs perceptie -->
+  <section>
+    <span class="sp-chapter-label">2 · Je factuur</span>
+    <h2>Wat mensen denken — en wat er echt gebeurt</h2>
+    <table style="font-size: 0.7em; margin: 0.8em auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--sp-border);">
+          <th style="padding: 0.4em 1em; text-align: left;">Perceptie</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Werkelijkheid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 0.4em 1em;">"Avondpiek kost extra."</td><td style="padding: 0.4em 1em;">Elk kwartier telt mee — ook 's nachts en in het weekend.</td></tr>
+        <tr><td style="padding: 0.4em 1em;">"Ik krijg één vrije piek per jaar."</td><td style="padding: 0.4em 1em;">Eén piek beïnvloedt elke van de <em>volgende twaalf</em> maandafrekeningen.</td></tr>
+        <tr><td style="padding: 0.4em 1em;">"Mijn zonnepanelen verlagen mijn piek."</td><td style="padding: 0.4em 1em;">Enkel wanneer ze op het juiste moment produceren. Avondpiek blijft volle afname.</td></tr>
+      </tbody>
+    </table>
+    <p class="sp-goed" style="margin-top: 0.6em; font-size: 0.78em;">
+      De advies-kern klopt: <em>spreid je verbruik, zet niet alles tegelijk aan</em>. Maar niet alleen 's avonds — altijd.
+    </p>
+    <p class="sp-bron">Bron: Fluvius Capaciteitstarief FAQ; VREG publieke communicatie.</p>
+    <aside class="notes">
+      Dit is belangrijk om recht te zetten. Veel mensen hebben het gedragsadvies
+      gehoord ("niet alles tegelijk") maar met de verkeerde reden ("omdat het
+      avondspits is"). Het gedrag is juist; de reden is "omdat elk kwartier telt".
+
+      Sterke vraag die je kan teruggeven als iemand twijfelt: "Stel je bent zaterdagmiddag
+      aan het bakken met oven + kookplaat terwijl de wasmachine draait — telt dat?" Antwoord:
+      ja, dat telt net zo hard als op dinsdag om 18u.
+    </aside>
+  </section>
+
+  <!-- 2.4 — Vast vs dynamisch tarief -->
+  <section>
+    <span class="sp-chapter-label">2 · Je factuur</span>
+    <h2>Vast of dynamisch contract?</h2>
+    <table style="font-size: 0.68em; margin: 0.6em auto; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--sp-border);">
+          <th style="padding: 0.4em 1em; text-align: left;">Type</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Hoe</th>
+          <th style="padding: 0.4em 1em; text-align: left;">Wie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 0.35em 1em;">Vast</td><td style="padding: 0.35em 1em;">Eén prijs per kWh, 1-3 jaar gefixt</td><td style="padding: 0.35em 1em;">Alle leveranciers</td></tr>
+        <tr><td style="padding: 0.35em 1em;">Variabel</td><td style="padding: 0.35em 1em;">Maandelijks bijgesteld op marktcurve</td><td style="padding: 0.35em 1em;">Alle leveranciers</td></tr>
+        <tr style="background: var(--sp-bg-subtle);"><td style="padding: 0.35em 1em;"><strong>Dynamisch</strong></td><td style="padding: 0.35em 1em;"><strong>Uurtarief, volgt EPEX-beurs</strong></td><td style="padding: 0.35em 1em;">Bolt, Luminus, OCTA+, Mega, TotalEnergies, Frank, ...</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.72em; margin-top: 0.5em;">
+      Dynamisch = je betaalt <em>op het moment</em> van verbruik, niet het gemiddelde.
+      Windstille, bewolkte avond → duur. Zonnige middag → goedkoop, soms zelfs negatief.
+    </p>
+    <p style="font-size: 0.7em; color: var(--sp-text-muted); margin-top: 0.3em;">
+      Terug naar de fiets: rugwind = zon = lage prijs. Tegenwind + helling = avondpiek = dure uren.
+    </p>
+    <p class="sp-bron">Bron: VREG marktmonitor 2025-2026; EPEX SPOT BE day-ahead.</p>
+    <aside class="notes">
+      Terugverwijzing fiets-analogie expliciet maken: dynamisch tarief is de prijs die
+      de windrichting vertelt. Wie kan plannen (wasmachine 's middags, EV overdag laden)
+      profiteert; wie moet verbruiken wanneer hij moet, niet.
+
+      Belangrijk: NIET suggereren dat dynamisch altijd beter is — dat is precies de valkuil
+      die de volgende slide aanpakt.
+    </aside>
+  </section>
+
+  <!-- 2.5 — Valkuil: krimpende marge -->
+  <section>
+    <span class="sp-chapter-label">2 · Je factuur</span>
+    <h2>Valkuil: de marge krimpt elk jaar</h2>
+    <ul style="font-size: 0.75em; line-height: 1.7;">
+      <li><strong>Uren met negatieve prijs op de Belgische markt:</strong>
+        <ul style="font-size: 0.9em;">
+          <li>2024 — ca. 200 uur</li>
+          <li>2025 — meer dan 450 uur</li>
+        </ul>
+      </li>
+      <li><strong>Injectievergoeding voor je zonnepanelen:</strong> van €0,30/kWh in 2022 naar ±€0,05/kWh in 2026.</li>
+    </ul>
+    <p class="sp-valkuil" style="margin-top: 0.7em; font-size: 0.75em;">
+      Wie vandaag een dynamisch contract of batterij-arbitrage als hoofd-argument neemt, stapt in een marge die aantoonbaar krimpt.
+    </p>
+    <p style="font-size: 0.7em; color: var(--sp-text-muted); margin-top: 0.4em;">
+      Engie Drive — eerste grote dynamische leverancier in BE — werd eind 2023 stopgezet.
+    </p>
+    <p class="sp-bron">Bron: Elia transparantie data; CREG monitoring rapport; Aurora Energy Research 2024.</p>
+    <aside class="notes">
+      Dit opent de rode draad "markt egaliseert zichzelf" die in hoofdstuk 7 (VPP)
+      terugkomt. Geen verkoopspraat — feitelijk.
+
+      Engie Drive: gestopt om leverancier-verliezen tijdens hoge volatiliteit, niet
+      omdat het concept slecht was. Belangrijke nuance — dynamisch contract is
+      niet "slecht", maar vertrouwen op arbitrage-winst als structurele spaarbron
+      is dat wel.
+
+      Spreads in BE: peak-to-trough gemiddeld €110/MWh in 2022, €60-80 in 2024,
+      Aurora projecteert €40-60 tegen 2028. Bron: Aurora Energy Research.
+    </aside>
+  </section>
+
 </section>
