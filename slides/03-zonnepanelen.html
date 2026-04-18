@@ -1,12 +1,141 @@
-<!-- Hoofdstuk 3 — Je had al zonnepanelen -->
+<!-- Hoofdstuk 3: Je had al zonnepanelen -->
 <section>
+
+  <!-- 3.1: Wat is er veranderd -->
   <section>
     <span class="sp-chapter-label">3 · Zonnepanelen</span>
-    <h2>Je had al zonnepanelen</h2>
-    <p style="color: var(--sp-text-muted);">Wat veranderde sinds terugdraaiende teller werd afgeschaft. Injectietarief.</p>
+    <h2>Je had al zonnepanelen. Wat veranderde?</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>Vroeger: terugdraaiende teller</h3>
+        <p class="sp-small">
+          Elke kWh die je injecteerde telde af van een kWh afname.
+          In feite werd je injectie verrekend aan <span class="sp-accent-marine">volle retailprijs</span>.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Vandaag: apart gemeten</h3>
+        <p class="sp-small">
+          Afname en injectie staan los van elkaar.
+          Je injectie wordt vergoed aan een afzonderlijk, marktafhankelijk tarief.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-small">
+      Op 14 januari 2021 vernietigde het Grondwettelijk Hof de compensatieregel
+      wegens bevoegdheidsoverschrijding. De VREG zelf had de procedure aangespannen.
+    </p>
+
+    <p class="sp-bron">Bron: Grondwettelijk Hof, arrest 5/2021 van 14 januari 2021; VREG FAQ Arrest Grondwettelijk Hof.</p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 3. Valkuil:
-      ROI-berekeningen op oude terugdraai-aannames.
+      De VREG als eiser is retorisch krachtig: de Vlaamse regulator ging zélf naar het
+      Grondwettelijk Hof tegen het Vlaamse decreet. Dat illustreert dat de afschaffing
+      niet zomaar een politieke keuze was, maar een juridische noodzaak.
+
+      Grond van het arrest: bevoegdheidsverdeling. Door nettoverbruik als heffingsgrondslag
+      te nemen, werden prosumenten feitelijk vrijgesteld van federale bijdragen, en die
+      zijn niet Vlaams maar federaal. Daarom moest het decreet sneuvelen.
+
+      Publicatie Belgisch Staatsblad: 1 maart 2021. Effect vanaf die datum, niet retroactief.
     </aside>
   </section>
+
+  <!-- 3.2: Economische gevolgen -->
+  <section>
+    <span class="sp-chapter-label">3 · Zonnepanelen</span>
+    <h2>Wat betekent dat voor je factuur?</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card">
+        <span class="sp-big-label">Zelfverbruik</span>
+        <span class="sp-big">±30%</span>
+        <p class="sp-small">Typisch Vlaams gezin met enkel zonnepanelen.</p>
+      </div>
+      <div class="sp-card amber">
+        <span class="sp-big-label">Dus naar het net</span>
+        <span class="sp-big accent">±70%</span>
+        <p class="sp-small">Vergoed aan injectietarief, niet aan retailprijs.</p>
+      </div>
+      <div class="sp-card green">
+        <span class="sp-big-label">Met slimme sturing</span>
+        <span class="sp-big green">35-45%</span>
+        <p class="sp-small">Zelfverbruik stijgt als je verbruik op productie afstemt.</p>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <p class="sp-small">
+        <strong>Injectievergoeding vandaag:</strong>
+        gemiddeld <span class="sp-accent-marine">€0,03 à €0,05 per kWh</span>,
+        tegen tot <span class="sp-accent-red">€0,28</span> in de crisis van 2022.
+        Sommige contracten zakken in zonnepiekuren zelfs onder nul.
+      </p>
+    </div>
+
+    <p class="sp-bron">Bron: VREG injectietarieven overzicht; Test-Aankoop zelfverbruik; callmepower.be tariefvergelijking maart 2026.</p>
+    <aside class="notes">
+      Kernlogica die publiek moet meenemen: als 70% van je productie naar het net gaat
+      aan €0,05/kWh en je zou diezelfde kWh vermijden te kopen aan €0,30/kWh retail,
+      dan laat je per geïnjecteerde kWh ongeveer €0,25 liggen. Bij een doorsnee
+      installatie van 5000 kWh opwekking per jaar is dat rond de €800 per jaar aan
+      gemiste waarde, geen kleingeld.
+
+      De 35-45%-cijfer met slimme sturing opent het bruggetje naar hoofdstuk 5 (EMS).
+      Niet hier al uitleggen hoe, wel het percentage laten hangen.
+
+      Vlaamse transitie is juridisch voorbij: compensatieprincipe eindigde op 1 april 2026,
+      retroactieve investeringspremie sloot op 31 maart 2026 (saneringsdossiers). Wie
+      vandaag nog op "de oude regel komt terug" wacht, wacht tevergeefs. Wallonië heeft
+      een apart regime dat nog loopt tot 2030, maar de Vlaamse minister vecht dat aan
+      bij de Raad van State.
+    </aside>
+  </section>
+
+  <!-- 3.3: Valkuil oude ROI -->
+  <section>
+    <span class="sp-chapter-label">3 · Zonnepanelen</span>
+    <h2>Valkuil: ROI op oude aannames</h2>
+
+    <table>
+      <thead>
+        <tr><th>Wat de calculator soms doet</th><th>Wat er nu geldt</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Injectie aan retailprijs</td><td>Injectie aan marktgekoppeld tarief</td></tr>
+        <tr><td>Jaargemiddelde verbruik vs opwekking</td><td>Per kwartier beoordeeld</td></tr>
+        <tr><td>Capaciteitstarief genegeerd</td><td>Maandpiek zit in de factuur</td></tr>
+        <tr><td>Vaste yield 1000-1100 kWh/kWp</td><td>VREG rekent met factor 0,9 (ca. 900)</td></tr>
+        <tr><td>Geen degradatie</td><td>PV ±0,5%/jaar, batterij ±2%/jaar</td></tr>
+      </tbody>
+    </table>
+
+    <p class="sp-valkuil">
+      Vraag elke aanbieder met welk injectietarief én welke yield zijn ROI rekent.
+      Worden de cijfers van 2022 gebruikt? Dan is de berekening verouderd.
+    </p>
+
+    <p class="sp-muted sp-tiny">
+      De VREG biedt een onafhankelijke simulator: <strong>simulatordigitalemeter.vreg.be</strong>.
+    </p>
+
+    <p class="sp-bron">Bron: Test-Aankoop terugverdientijd; VREG simulator digitale meter.</p>
+    <aside class="notes">
+      Dit is de valkuil-slide. Benadruk dat een eerlijke aanbieder de gebruikte parameters
+      gewoon laat zien: welke yield, welk injectietarief, welke degradatie. Wie dat niet
+      doet of het afdoet met "dat is te technisch", verbergt iets.
+
+      Een concrete gedragstip die publiek letterlijk mee naar huis kan nemen:
+      "Vraag om de ROI met huidige injectievergoeding én met injectievergoeding die
+      nog de helft lager ligt." Als de installatie onder beide scenario's nog zinvol is,
+      kan je vertrouwen hebben. Valt een van beide om, dan leunt het businessmodel
+      op optimisme.
+
+      Voor technisch publiek: yield-factor 0,9 is de VREG-default voor Vlaamse
+      installaties met gemengde oriëntatie; zuivere zuidoriëntatie haalt hoger,
+      oost-west lager.
+    </aside>
+  </section>
+
 </section>
