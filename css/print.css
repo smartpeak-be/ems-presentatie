@@ -1,0 +1,28 @@
+/* Overrides voor PDF-export (Reveal ?print-pdf mode)
+   Doel: zelfde visual als op scherm, maar consistent per slide.
+*/
+
+@media print {
+  /* Ensure each slide prints on its own page */
+  .reveal .slides section.present {
+    break-after: page;
+  }
+
+  /* Hide controls, progress, chapter labels in PDF */
+  .reveal .controls,
+  .reveal .progress {
+    display: none !important;
+  }
+
+  /* Ensure logos and sources render in print */
+  .reveal .sp-logo,
+  .reveal .sp-bron,
+  .reveal .sp-chapter-label {
+    display: block !important;
+  }
+
+  /* Links as underlined but not blue-browser-style */
+  .reveal a {
+    color: var(--sp-marine);
+  }
+}
