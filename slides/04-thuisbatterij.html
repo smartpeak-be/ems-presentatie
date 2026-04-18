@@ -1,16 +1,501 @@
-<!-- Hoofdstuk 4 — De thuisbatterij (dikste hoofdstuk) -->
+<!-- Hoofdstuk 4: De thuisbatterij -->
 <section>
+
+  <!-- 4.1: Opener -->
   <section>
     <span class="sp-chapter-label">4 · Thuisbatterij</span>
-    <h2>De thuisbatterij</h2>
-    <p style="color: var(--sp-text-muted);">
-      Use-cases, chemie, AC/DC, sizing, off-grid vs back-up, veiligheid.
-      12-14 slides in vervolgplan.
+    <h2>Nu de batterij zelf</h2>
+    <p class="sp-muted sp-small">
+      We hebben nu een factuur en we weten hoe de prijzen werken.
+      Tijd om te kijken wat een thuisbatterij daar concreet aan toevoegt,
+      en waar het mis kan gaan.
     </p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 4, dit is het dikste hoofdstuk.
-      Trade-off zelfconsumptie vs peakshaving expliciet als eigen slide.
-      Cumulatieve valkuil-slide aan einde.
+      Korte opener, 20 sec. Stel in dat dit het dikste hoofdstuk is van de avond.
+      Het is ook het hoofdstuk met de meeste cowboy-tactieken, dus extra aandacht voor nuance.
     </aside>
   </section>
+
+  <!-- 4.2: Vier use-cases -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Waarvoor dient een thuisbatterij?</h2>
+
+    <div class="sp-grid-4">
+      <div class="sp-card">
+        <h3>Zelfverbruik</h3>
+        <p class="sp-small">PV-overschot bewaren voor 's avonds in plaats van injecteren aan 5 cent.</p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Piekscheren</h3>
+        <p class="sp-small">Tijdens een hoog kwartier bijstaan zodat je capaciteitstarief laag blijft.</p>
+      </div>
+      <div class="sp-card">
+        <h3>Arbitrage</h3>
+        <p class="sp-small">Laden aan lage spotprijzen, ontladen aan hoge, met een dynamisch contract.</p>
+      </div>
+      <div class="sp-card green">
+        <h3>Back-up</h3>
+        <p class="sp-small">Stroom houden tijdens een stroomonderbreking op het net.</p>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-small">
+      Elk van deze vier gebruikt dezelfde hardware, maar een EMS kan maar één doel tegelijk optimaliseren.
+    </p>
+
+    <p class="sp-bron">Bron: Fluvius, Frank Energie, Bebat, Zen Zonne Energie (industriestandaard-categorisering).</p>
+    <aside class="notes">
+      De vier zijn industriestandaard, niet VREG-doctrine. Presenteer ze als het standaard rijtje,
+      niet als autoritaire regulering. In de volgende slide komt de trade-off.
+
+      Typische toegevoegde waarde anno 2026: zelfverbruik 300-450 euro/jaar uplift voor 5 kWh batterij,
+      peakshaving afhankelijk van gedrag, arbitrage 100-250 euro/jaar op dynamisch contract (Xemex, Frank).
+    </aside>
+  </section>
+
+  <!-- 4.3: De trade-off -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Je kan niet alles optimaliseren</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>Zelfverbruik wil</h3>
+        <ul>
+          <li>Volledig gevuld zijn tegen zonsondergang.</li>
+          <li>Leeg 's morgens, klaar voor de volgende zon.</li>
+        </ul>
+      </div>
+      <div class="sp-card amber">
+        <h3>Piekscheren wil</h3>
+        <ul>
+          <li>Altijd capaciteit in reserve houden.</li>
+          <li>Klaarstaan voor het grote kwartier dat je niet ziet aankomen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp-card marine">
+      <p class="sp-small">
+        De rekenregel: één gemiste piek kost je <strong style="color: #F5A623;">€45/kW × 12 maanden</strong>
+        in je gemiddelde. Eén gemist uur zelfverbruik kost je <strong style="color: #F5A623;">één keer €0,25</strong>.
+        Daarom prioriteert een goed ingestelde EMS piekscheren boven zelfverbruik.
+      </p>
+    </div>
+
+    <p class="sp-bron">Bron: EMS-dispatch literatuur (Xemex, AlphaESS BE-whitepaper, WATTMORE).</p>
+    <aside class="notes">
+      Belangrijke nuance die je mondeling kan toevoegen: in de praktijk gaat een EMS
+      niet voor één doel "alles of niets", maar weegt hij ze af. De exacte weging hangt af van
+      contract (dynamisch of vast), verwacht verbruiksprofiel, en gedragsvoorkeur van de klant.
+
+      Dit is ook het punt waar je impliciet kan aanstippen dat een eerlijke installateur
+      VRAAGT wat je doel is, niet zomaar een systeem dumpt dat één doel bedient.
+    </aside>
+  </section>
+
+  <!-- 4.4: Chemie LFP vs NMC -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Welke chemie? LFP won.</h2>
+
+    <table>
+      <thead>
+        <tr><th>Eigenschap</th><th>LFP (lithium-ijzerfosfaat)</th><th>NMC (lithium-nikkel-mangaan)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Levensduur (cycli tot 80%)</td><td>3.000 tot 6.000+</td><td>1.000 tot 2.500</td></tr>
+        <tr><td>Kalenderlevensduur</td><td>15 tot 20 jaar</td><td>8 tot 12 jaar</td></tr>
+        <tr><td>Energiedichtheid</td><td>Lager</td><td>Hoger</td></tr>
+        <tr class="highlight"><td>Thermische stabiliteit</td><td><strong>Hoog</strong></td><td>Lager</td></tr>
+      </tbody>
+    </table>
+
+    <p class="sp-small">
+      In de residentiële markt is LFP vandaag standaard (nagenoeg 100% van nieuwe verkopen in Europa).
+      NMC zit nog in auto's omdat volumedichtheid daar telt. Voor een thuisbatterij telt die niet.
+    </p>
+
+    <p class="sp-bron">Bron: EUPD Research 2026; ScienceDirect review LFP vs NMC 2024.</p>
+    <aside class="notes">
+      Als een installateur in 2026 NMC probeert te verkopen voor residentieel, stel dan
+      kritische vragen. Er is nauwelijks een case voor.
+
+      Technische detail voor geïnteresseerden: LFP haalt in top-bin cellen (CATL, BYD)
+      tot 10.000 cycli. Dat komt overeen met meer dan 25 jaar dagelijks cyclen,
+      langer dan je garantie loopt.
+    </aside>
+  </section>
+
+  <!-- 4.5: Brandveiligheid en BMS -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Is een thuisbatterij brandveilig?</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <p class="sp-small">
+          Het echte onderscheid tussen LFP en NMC is niet of ze kunnen branden,
+          allebei kunnen dat, maar hoe een brand zich gedraagt.
+        </p>
+        <p class="sp-small">
+          LFP heeft zuurstof chemisch vast in zijn kristalstructuur. Bij thermal runaway
+          ontsnapt er geen zuurstof uit de cel zelf, waardoor de brand veel moeilijker
+          van cel naar cel springt.
+        </p>
+      </div>
+      <div class="sp-card marine">
+        <h3 style="color: #F5A623;">De BMS als bewaker</h3>
+        <ul style="color: var(--sp-bg);">
+          <li>Spanning per cel bewaakt 24/7.</li>
+          <li>Temperatuurvoelers schakelen af boven 55 °C.</li>
+          <li>Stroombegrenzing en kortsluitingsdetectie.</li>
+          <li>Communiceert met de omvormer via CAN-bus.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-tiny">
+      EU certificering anno 2026: IEC 62619 (cel), IEC 62933-5-2 (systeem),
+      EU Batterijverordening 2023/1542, Synergrid C10/11, AREI-keuring.
+    </p>
+
+    <p class="sp-bron">Bron: Chu et al. ChemElectroChem 2024; EPRI BESS Failure Database; EU Regulation 2023/1542.</p>
+    <aside class="notes">
+      Flag: voor residentiële BESS in Europa bestaan geen publieke branstatistieken.
+      EPRI tracked enkel utility-scale (0,3% brandgerelateerde incidenten in 2024).
+      Voor thuissystemen: geen vergelijkbaar cijfer. Quote het EPRI-getal dus niet
+      als "thuisbatterij is voor 99,7% veilig", dat klopt niet.
+
+      Wel verdedigbaar: significant zeldzamer dan bv. lithium e-step-branden, en
+      de meeste incidenten komen door installatiefouten, niet celdefecten.
+    </aside>
+  </section>
+
+  <!-- 4.6: AC vs DC -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>AC of DC gekoppeld?</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>DC gekoppeld (hybride)</h3>
+        <ul>
+          <li>PV en batterij delen één DC-bus.</li>
+          <li>Round-trip 94 tot 96 procent.</li>
+          <li>Ideaal bij nieuwe installatie.</li>
+        </ul>
+      </div>
+      <div class="sp-card amber">
+        <h3>AC gekoppeld</h3>
+        <ul>
+          <li>Batterij naast bestaande PV-omvormer.</li>
+          <li>Round-trip 88 tot 92 procent.</li>
+          <li>Ideaal bij retrofit.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <p class="sp-small">
+        Verschil: ongeveer 3 tot 6 procentpunten efficiëntie.
+        Over 15 jaar en 1.500 kWh per jaar is dat zo'n 700 tot 1.400 kWh die je verliest bij AC.
+        Niet dramatisch, wel relevant.
+      </p>
+    </div>
+
+    <p class="sp-bron">Bron: HTW Berlin Stromspeicher-Inspektion 2025 (onafhankelijke lab-tests, 22 systemen).</p>
+    <aside class="notes">
+      HTW Berlin's kernconclusie is nuttig: datasheets van fabrikanten zijn onderling
+      niet vergelijkbaar. Vraag om lab-cijfers of gebruik HTW als onafhankelijke referentie.
+
+      In de praktijk hangt de keuze vooral af van de bestaande installatie.
+      Wie al PV heeft met string-omvormer kiest meestal AC. Wie vanaf nul begint,
+      meestal DC. Beide zijn verdedigbaar. Niemand moet zijn werkende omvormer
+      vervangen alleen omdat de nieuwe batterij DC verkiest.
+    </aside>
+  </section>
+
+  <!-- 4.7: Types -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Geïntegreerd of modulair?</h2>
+
+    <table>
+      <thead>
+        <tr><th></th><th>Geïntegreerd</th><th>Modulair</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voorbeelden</td><td>Tesla Powerwall, Marstek, Alpha ESS SMILE</td><td>BYD Battery-Box, Huawei LUNA, Zendure, Fronius Reserva</td></tr>
+        <tr><td>Installatie</td><td>Eén blok, halve dag</td><td>Stapel modules, meer bekabeling</td></tr>
+        <tr><td>Uitbreidbaar</td><td>Beperkt</td><td>Ja, jaren later nog</td></tr>
+        <tr><td>Prijs per kWh</td><td>Laag</td><td>Hoger op kleine schaal</td></tr>
+      </tbody>
+    </table>
+
+    <p class="sp-small">
+      Vuistregel: start je met een volwassen huis zonder toekomstige elektrische auto of warmtepomp,
+      dan werkt geïntegreerd prima. Verwacht je binnen 5 jaar groei, kies modulair.
+    </p>
+
+    <p class="sp-bron">Bron: datasheets Tesla, BYD, Huawei, Fronius, Marstek, Zendure; europe-solarstore.com.</p>
+    <aside class="notes">
+      Interessante recente ontwikkeling: Marstek is sinds april 2025 plug-and-play
+      gehomologeerd in Vlaanderen. Dat is het eerste regime voor thuisbatterij zonder
+      volledige AREI-interventie, wel strikt scope-beperkt (enkel kleine kWh en specifieke homologatie).
+
+      Vendor lock-in flag: Huawei, BYD en Tesla hebben garantievoorwaarden die
+      niet-goedgekeurde omvormers uitsluiten. Gaat bij elk onderwerp cowboys-gevoelig.
+    </aside>
+  </section>
+
+  <!-- 4.8: EV en V2G -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Laadpaal, DC-charging en V2G</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card">
+        <h3>AC-laden</h3>
+        <p class="sp-small">Klassieke wallbox, 7-22 kW, telt mee in je capaciteitstarief-piek.</p>
+      </div>
+      <div class="sp-card amber">
+        <h3>DC-laden thuis</h3>
+        <p class="sp-small">Sungrow SH-RT + DC-oplader: PV en batterij laden de auto via DC-bus,
+        zonder AC-meter dus zonder impact op capaciteitstarief.</p>
+      </div>
+      <div class="sp-card green">
+        <h3>V2G</h3>
+        <p class="sp-small">Auto laadt terug naar het net. Hardware klaar, regelgeving in BE nog niet.</p>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <p class="sp-small">
+        <strong>Belangrijke nuance:</strong> DC-laden omzeilt enkel de AC-meter voor het deel dat uit
+        PV en batterij komt. Wat erbovenop uit het net wordt getrokken gaat alsnog via AC en telt mee.
+      </p>
+    </div>
+
+    <p class="sp-bron">Bron: Sungrow productdocumentatie 2026; Elia V2G adequacy; NextMobility 2026.</p>
+    <aside class="notes">
+      V2G in BE 2026: hardware-ready, niet commercieel.
+      Blokkerende zaken:
+      - Bidirectionele laders meestal nog niet door RGIE-keuring.
+      - Onzekerheid rond BIV / bedrijfswagen-fiscaliteit voor teruggestuurde stroom.
+      - Geen DSO-tarief dat V2G-injectie hoger vergoedt dan standaard injectievergoeding.
+
+      Elia schat 80% round-trip voor V2G. Auto's die het technisch ondersteunen in 2026:
+      Nissan Leaf, Kia EV6/EV9, Hyundai Ioniq 5/6, Renault 5, Volvo EX90 (hardware-ready),
+      Ford F-150 Lightning, BYD Atto 3. BMW/Mercedes roadmap 2026-2027.
+
+      Correcte framing voor publiek: "hardware bestaat, regulering niet, kom binnen 2 jaar terug".
+    </aside>
+  </section>
+
+  <!-- 4.9: Sizing -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Hoe groot moet hij zijn?</h2>
+
+    <div class="sp-card">
+      <p class="sp-small">
+        <strong>Vuistregel:</strong>
+        <span class="sp-accent-marine">0,8 tot 1,5 kWh per kWp PV</span>.
+        Voor een typisch Vlaams gezin met 4 kWp zon en 4.500 kWh verbruik:
+        <span class="sp-accent">4 tot 6 kWh batterij</span>.
+      </p>
+    </div>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>5 kWh correct gedimensioneerd</h3>
+        <ul>
+          <li>Ongeveer 280 volle cycli per jaar.</li>
+          <li>±300 euro per jaar zelfverbruik-winst.</li>
+          <li>Terugverdientijd ordegrootte 10 jaar.</li>
+        </ul>
+      </div>
+      <div class="sp-card amber">
+        <h3>15 kWh oversized</h3>
+        <ul>
+          <li>Ongeveer 130 volle cycli per jaar.</li>
+          <li>Slechts 50 tot 100 euro extra per jaar.</li>
+          <li>Drie keer de kostprijs, terugverdientijd &gt; 18 jaar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-valkuil">
+      Een te grote batterij draait trager. Minder cycli betekent minder waarde én de kalenderlevensduur-klok tikt gewoon door.
+    </p>
+
+    <p class="sp-bron">Bron: Bebat academy; batterijsimulator.be; VREG simulator digitale meter.</p>
+    <aside class="notes">
+      Concrete cijfers in dit voorbeeld zijn gekalibreerd op 5 kWp PV, 4500 kWh/jaar,
+      30% baseline zelfverbruik zonder batterij.
+
+      Belangrijke context: boven 15 kWh worden residentiële installaties economisch
+      alleen interessant als je dagelijks vol cyclen, wat meestal een EV en/of warmtepomp vereist.
+    </aside>
+  </section>
+
+  <!-- 4.10: Meer dan geld -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Meer dan alleen terugverdientijd</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card green">
+        <h3>Ecologie</h3>
+        <p class="sp-small">
+          Een 5 kWh batterij die dagelijks cyclet vermijdt 250-300 kg CO₂ per jaar (BE-mix 2026).
+          Klein, maar niet nul.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>Onafhankelijkheid</h3>
+        <p class="sp-small">
+          Bij een prijspiek zoals in 2022 vermeed een goed gestuurde batterij 400-700 euro aan
+          de duurste uren. Niet bankable, wel reëel.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Vrijheid</h3>
+        <p class="sp-small">
+          Je bent minder gebonden aan de prijzen die een leverancier op jouw avondpiek zet.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-small">
+      Deze dingen staan niet op je terugverdien-simulatie, maar ze zijn wel waarom mensen vaak
+      kopen zonder dat pure rendement hun enige criterium is.
+    </p>
+
+    <p class="sp-bron">Bron: EMBER European Power Review 2025 (emissiefactor BE-mix); CREG marktgegevens 2022 crisis.</p>
+    <aside class="notes">
+      Vermijd deze drie punten te presenteren als "dus is het altijd rendabel". Het is
+      een eerlijkheidspunt: rendement is niet de enige waarde-as, maar het is ook geen excuus
+      voor een slechte terugverdien-case. Zie het als "bonus", niet als "justificatie".
+
+      Geen groenestroomcertificaten of premies voor residentiële batterijen in Vlaanderen anno 2026.
+      Grootschalige BESS krijgen wel CRM-capaciteitscontracten (zie Vilvoorde), maar die drempel
+      ligt ver boven residentieel.
+    </aside>
+  </section>
+
+  <!-- 4.11: Off-grid vs back-up -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Back-up betekent niet altijd hetzelfde</h2>
+
+    <table>
+      <thead>
+        <tr><th>Wat de verkoper zegt</th><th>Wat je echt krijgt</th><th>Meerkost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Back-up stopcontact"</td><td>Eén UPS-uitgang, 1-3 kW. Manueel inpluggen.</td><td>Inbegrepen</td></tr>
+        <tr><td>"Beveiligd circuit"</td><td>Subpaneel met 2-4 kW, vooraf bekabeld.</td><td>€500-1.000</td></tr>
+        <tr class="highlight"><td><strong>Volledige woning</strong></td><td><strong>Automatische overschakeling, 5-10 kW, alles blijft werken.</strong></td><td><strong>€1.500-3.500</strong></td></tr>
+        <tr><td>"Off-grid"</td><td>Permanent van het net, 20-40 kWh batterij + backup-generator.</td><td>Veel</td></tr>
+      </tbody>
+    </table>
+
+    <p class="sp-valkuil">
+      De vage "back-up"-belofte in brochures betekent vaak alleen dat eerste stopcontact. Vraag specifiek wat er gebeurt met je hele installatie als het net uitvalt.
+    </p>
+
+    <p class="sp-bron">Bron: Victron MultiPlus-II documentatie; Fronius Reserva backup specs; installateur-advieswebsites.</p>
+    <aside class="notes">
+      Volledige woning-back-up vereist: automatische transfer switch (ATS),
+      omvormer gedimensioneerd voor vol vermogen, load-shedding logica.
+      In België bieden Fronius GEN24 + Backup Controller, Victron MultiPlus-II + Cerbo-GX
+      en SMA Sunny Boy Storage + Automatic Backup Unit dit aan.
+
+      Off-grid = puur irrationeel voor standaard gezin met BE-netaansluiting. Alleen
+      relevant voor vakantiewoning zonder aansluiting of uit principe. Dan: 3-5 dagen
+      autonomie, PV 1,5 tot 2 keer de jaarvraag, en een backup-generator voor slechte winterweken.
+    </aside>
+  </section>
+
+  <!-- 4.12: Garantie -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>Lees de kleine lettertjes</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card">
+        <h3>Tesla Powerwall 3</h3>
+        <p class="sp-small">
+          70% capaciteit na 10 jaar.
+          Onbeperkt cycli voor zelfverbruik, maar VPP en arbitrage zijn begrensd op 37,8 MWh doorvoer.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>BYD Battery-Box</h3>
+        <p class="sp-small">
+          6.000 cycli of 10 jaar, 60 à 70% retentie.
+          Alleen met goedgekeurde omvormer. Geen internet langer dan 6 maanden = geen verlenging.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Huawei LUNA</h3>
+        <p class="sp-small">
+          60% retentie in België,
+          <span class="sp-accent-red">80% in Duitsland</span>.
+          Zelfde hardware, verschillende garantie.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-valkuil">
+      "10 jaar garantie" betekent meestal: kalender óf cycli óf doorvoer, wat het eerst tikt.
+      "80% na 10 jaar" is vaak marketingtaal op een clausule van 60 of 70%.
+    </p>
+
+    <p class="sp-bron">Bron: officiële EU-garantiedocumenten Tesla, BYD, Huawei (zie sources.md).</p>
+    <aside class="notes">
+      Dit is waarschijnlijk de scherpste slide van de avond. Nadruk: de garantie IS publiek,
+      vraag hem op bij de verkoper vóór je tekent. Als de verkoper niet onmiddellijk het pdf-document
+      kan tonen, is dat al een signaal.
+
+      Tip voor publiek: ga altijd na hoeveel cycli van jouw gezin per jaar realistisch zijn,
+      en tel dan af tegen de cycli-garantie. Als je op 6.000 cycli mikt, vermijd dan grid-services-
+      contracten die 2-3 cycli per dag doen.
+    </aside>
+  </section>
+
+  <!-- 4.13: Cumulatieve valkuil -->
+  <section>
+    <span class="sp-chapter-label">4 · Thuisbatterij</span>
+    <h2>De vijf cowboy-tactieken</h2>
+
+    <ol style="font-size: 0.85em; line-height: 1.7;">
+      <li><strong>Oversizing voor marge.</strong> Grotere quote = grotere winst voor de verkoper.</li>
+      <li><strong>ROI op best-case.</strong> Injectie aan crisisprijzen, geen degradatie, cycli-claim hoger dan de garantie zelf.</li>
+      <li><strong>Vendor lock-in.</strong> Gesloten clouds, geen data-export, verplichte internetverbinding voor garantie.</li>
+      <li><strong>Vage garantiepraat.</strong> "80% na 10 jaar" op een clausule die 60 tot 70% garandeert.</li>
+      <li><strong>Slechte installatie.</strong> In Vlaanderen bestaat anno 2026 nog geen RESCert voor batterij-installateurs.</li>
+    </ol>
+
+    <div class="sp-card amber">
+      <p class="sp-small">
+        Simpele test: vraag om de garantievoorwaarden én om een ROI met zowel huidige als lagere injectievergoeding.
+        Wie dat niet geeft, heeft iets te verbergen.
+      </p>
+    </div>
+
+    <p class="sp-bron">Bron: synthese van hoofdstuk 4. Techlink/VEKA publieke oproep voor RESCert-voor-BESS (Solar Magazine NL).</p>
+    <aside class="notes">
+      Kernboodschap van het hele hoofdstuk, samengebald. Nadruk: niet alle installateurs doen dit,
+      maar wie deze tactieken ziet heeft nu een vocabulaire om ze te benoemen.
+
+      Belangrijk voor SmartPeak-positie: jullie proberen hier NIET te zeggen "wij doen dit niet".
+      Dat zou expliciet zelfpromotie zijn. In plaats daarvan: je publiek heeft nu de tools, en
+      mag er zelf uit afleiden welke aanbieders eerlijk omgaan met hun informatie en welke niet.
+    </aside>
+  </section>
+
 </section>

@@ -120,7 +120,86 @@ Gevalideerd op 2026-04-18.
 
 ## Hoofdstuk 4, Thuisbatterij
 
-_Wordt aangevuld. Expliciet te verifiëren: brandveiligheid LFP vs NMC._
+Gevalideerd op 2026-04-18.
+
+### Vier use-cases en trade-off (slides 4.2, 4.3)
+
+- **Fluvius, Capaciteitstarief en batterij.** [fluvius.be](https://www.fluvius.be/nl/thema/meters-en-meterstanden/digitale-meter/capaciteitstarief).
+- **Xemex, Dynamic energy prices in Belgium.** [xemex.eu/en/dynamic-energy-prices-in-belgium](https://www.xemex.eu/en/dynamic-energy-prices-in-belgium-turning-risk-into-value/).
+- **Frank Energie, Is een thuisbatterij rendabel?** [frankenergie.be/nl/kennisbank/thuisbatterij/is-een-thuisbatterij-rendabel](https://www.frankenergie.be/nl/kennisbank/thuisbatterij/is-een-thuisbatterij-rendabel).
+- **Zen Zonne Energie, peakshaving.** [zen-zonne-energie.be/peak-shaving](https://www.zen-zonne-energie.be/peak-shaving/).
+- **AlphaESS, Belgian tariff structure whitepaper.** [alphaess.com/new-electricity-tariff-structure-in-belgium](https://www.alphaess.com/new-electricity-tariff-structure-in-belgium).
+
+### Chemie LFP vs NMC (slide 4.4)
+
+- **Chu et al., Oxygen Release in Ni-Rich Layered Cathodes (ChemElectroChem 2024).** [chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/celc.202300653](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/celc.202300653).
+- **Navigating Battery Choices: LFP vs NMC (ScienceDirect 2024).** [sciencedirect.com/science/article/pii/S2950264024000078](https://www.sciencedirect.com/science/article/pii/S2950264024000078).
+- **MDPI Batteries 2025, Thermal runaway comparison.** [mdpi.com/2313-0105/11/9/323](https://www.mdpi.com/2313-0105/11/9/323).
+- **Electric & Hybrid Vehicle Technology, LFP vs NMC thermal runaway.** [electrichybridvehicletechnology.com](https://www.electrichybridvehicletechnology.com/technical-articles/lfp-vs-nmc-thermal-runaway.html).
+
+### Brandveiligheid, BMS, certificering (slide 4.5)
+
+- **EPRI BESS Failure Incident Database.** [storagewiki.epri.com/index.php/BESS_Failure_Incident_Database](https://storagewiki.epri.com/index.php/BESS_Failure_Incident_Database). 0,3% brandgerelateerd utility-scale in 2024.
+- **EPRI 2025 fire-safety assessment.** [cleanpower.org](https://cleanpower.org/wp-content/uploads/gateway/2025/03/Assessment-of-Potential-Impacts-of-Fires-at-BESS-Facilities_FINAL_Sep-2025.pdf).
+- **EU Batterijverordening (EU) 2023/1542.** [eur-lex.europa.eu/eli/reg/2023/1542/oj](https://eur-lex.europa.eu/eli/reg/2023/1542/oj). In voege sinds 18 augustus 2024. Digital battery passport vanaf februari 2027 voor BESS > 2 kWh.
+- **VITO, Standards for safe stationary batteries (ESGC 2024).** [energystorageeurope.eu](https://energystorageeurope.eu/wp-content/uploads/2024/10/3.5-_ESGC_2024-Mulder.pdf). Overzicht IEC 62619, IEC 62933-5-2.
+- **Compliance Gate, Lithium battery safety standards EU.** [compliancegate.com](https://www.compliancegate.com/lithium-battery-safety-standards-european-union/).
+- **BMS werking overzicht: Monolithic Power, Synopsys.** Standaard industriereferenties.
+
+### AC vs DC coupling efficiëntie (slide 4.6)
+
+- **HTW Berlin, Stromspeicher-Inspektion 2025.** [solar.htw-berlin.de/publikationen/testergebnisse-stromspeicher-inspektion-2025](https://solar.htw-berlin.de/publikationen/testergebnisse-stromspeicher-inspektion-2025/). Onafhankelijk lab-onderzoek, 22 systemen, 17 fabrikanten.
+- **HTW persbericht records 2025.** [solar.htw-berlin.de/publikationen/wirkungsgradrekord-stromspeicher-inspektion-2025](https://solar.htw-berlin.de/publikationen/wirkungsgradrekord-stromspeicher-inspektion-2025/). Kostal Plenticore G3 98,2% laadefficiëntie, record.
+- **SolarEdge, AC vs DC coupled explainer.** [solaredge.com/us/solaredge-blog/ac-coupled-vs-dc-coupled](https://www.solaredge.com/us/solaredge-blog/ac-coupled-vs-dc-coupled).
+
+### Hardware types (slide 4.7)
+
+- **Marstek VENUS product-overzicht.** [eu.marstekenergy.com](https://eu.marstekenergy.com/en-nl/blogs/news/marstek-intersolution-2026%E4%B8%A8powering-the-future-of-energy). InterSolution 2026 Gent. Plug-and-play gehomologeerd in Vlaanderen sinds april 2025.
+- **BYD Battery-Box Premium datasheet.** [bydbatterybox.com](https://bydbatterybox.com/uploads/downloads/BYD%20Battery-Box%20Premium_Datasheet_HV-AU%20V1.2%20EN-5eec6422498ad.pdf).
+- **Huawei LUNA2000 S1 specs.** [solar.huawei.com](https://solar.huawei.com/en/products/luna2000-215-series/specs/).
+- **Fronius Reserva Pro 2026.** [fronius.com/en/solar-energy/solar-solutions/solar-energy-storage/reserva-pro](https://www.fronius.com/en/solar-energy/solar-solutions/solar-energy-storage/reserva-pro).
+- **Zendure AB3000X specs.** [zendure.com/blogs/news/zendure-battery-specs-review](https://zendure.com/blogs/news/zendure-battery-specs-review).
+
+### EV, DC-charging, V2G (slide 4.8)
+
+- **Sungrow EV Charger range.** [sungrowpower.com/en/ev-charger](https://www.sungrowpower.com/en/ev-charger). IDC30E 30 kW residential DC charger, AC22E-01 22 kW AC.
+- **SolarEdge bidirectional DC-coupled EV charger.** [chargedevs.com/newswire/solaredge-unveils-new-bidirectional-dc-coupled-ev-charger](https://chargedevs.com/newswire/solaredge-unveils-new-bidirectional-dc-coupled-ev-charger/).
+- **NextMobility, V2G Belgium 2026 readiness.** [nextmobility.be/en/post/vehicle-to-grid-belgium-v2g-readiness-opportunities](https://www.nextmobility.be/en/post/vehicle-to-grid-belgium-v2g-readiness-opportunities/).
+- **Mobility House, V2G-capable cars 2026.** [mobilityhouse-energy.com/int_en/knowledge-center/article/which-cars-are-v2g-capable](https://mobilityhouse-energy.com/int_en/knowledge-center/article/which-cars-are-v2g-capable).
+
+### Sizing en ROI (slides 4.9, 4.10)
+
+- **Bebat Academy, home battery interesting investment.** [bebat.be/en/academy/the-home-battery-interesting-investment](https://www.bebat.be/en/academy/the-home-battery-interesting-investment).
+- **batterijsimulator.be.** [batterijsimulator.be/en](https://www.batterijsimulator.be/en/).
+- **EmaxSolar, sizing-advies.** [emaxsolar.be/en/energy-tips/how-to-choose-the-correct-size-of-home-battery-for-your-solar-system](https://emaxsolar.be/en/energy-tips/how-to-choose-the-correct-size-of-home-battery-for-your-solar-system/).
+- **EMBER European Power Review 2025.** [ember-energy.org](https://ember-energy.org). BE-mix emissiefactor 150-200 gCO₂/kWh 2026.
+
+### Off-grid / back-up (slide 4.11)
+
+- **Victron Energy, Off-grid, backup and island systems.** [victronenergy.com](https://www.victronenergy.com/upload/documents/Off-Grid-backup-and-island-systems_EN_2024_WEB.pdf).
+- **Fronius Reserva backup documentation.** [fronius.com](https://www.fronius.com/en/solar-energy/home-owners/products-and-solutions/store-solar-power/reserva).
+
+### Garantie-kleine-lettertjes (slide 4.12)
+
+- **Tesla Powerwall 3 EU warranty (Rev 1.16).** [energylibrary.tesla.com](https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/General/Warranty/en-emea/Powerwall-Warranty-EN.pdf). 70% capaciteit na 10 jaar, onbeperkt voor zelfverbruik, 37,8 MWh doorvoercap voor grid-services.
+- **BYD Battery-Box Premium limited warranty Europe.** [europe-solarstore.com](https://www.europe-solarstore.com/download/byd/BYD-batterybox-premium-limited-warranty-europe-hvs-hvm-en.pdf). 6000 cycli of 10 jaar, 60-70% retentie, goedgekeurde-omvormer-verplichting.
+- **Huawei residential smart PV warranty.** [solar.huawei.com](https://solar.huawei.com/download?p=%2F-%2Fmedia%2FSolarV4%2Fsolar-version2%2Fcommon%2Fservice-support%2Fwarranty%2Fpdf%2Fresidential-smart-pv-warranty-agreement-v1-0.pdf). 60% retentie non-DE vs 80% DE, zelfde hardware.
+
+### Cumulatieve valkuilen en installatiekwaliteit (slide 4.13)
+
+- **Techlink + VEKA, RESCert voor thuisbatterij.** [solarmagazine.nl](https://solarmagazine.nl/nieuws-zonne-energie/i27458/techlink-en-veka-rescert-voor-thuisbatterij-en-koppeling-premie-niet-evident-investeer-in-bredere-basisopleidingen). Publieke oproep, nog geen RESCert-equivalent voor BESS-installateurs in Vlaanderen anno 2026.
+- **Marssolar defecten-overzicht.** [marssolar.be/zonnepanelen/defecten](https://marssolar.be/zonnepanelen/defecten/). Meest gemelde installatieproblemen.
+- **Energy-Village, keuringsvereisten thuisbatterij.** [energy-village.be/nl/thuisbatterij/keuring](https://www.energy-village.be/nl/thuisbatterij/keuring/).
+
+### Nuances in speaker notes (niet op slide)
+
+- Geen publiek residentiële branstatistiek voor Europa beschikbaar. EPRI-cijfer 0,3% (2024) is utility-scale, niet te extrapoleren naar thuissystemen.
+- LFP ≈ 100% marktaandeel residentieel Europa 2026; NMC retreating naar EV-tractie (EUPD Research).
+- HTW Berlin's kritiek: datasheets van fabrikanten zijn onderling niet vergelijkbaar, altijd naar onafhankelijke labtests vragen.
+- V2G in BE 2026: hardware-ready, geblokkeerd door RGIE-keuring, BIV-fiscaliteit onduidelijkheden, geen DSO-tarief voor V2G-injectie, geen retail-contract.
+- V2H is commercieel deployable vandaag (Wallbox Quasar, dcbel, Enphase); V2G vereist grid-code, aggregator-contract, niet residentieel in BE.
+- Huawei LUNA 60% vs 80% retentie non-DE vs DE is zeldzaam striking voorbeeld van geografie-afhankelijke garantie op identieke hardware.
+- Tesla Powerwall 3 37,8 MWh throughput-cap specifiek voor non-self-consumption use, direct relevant voor VPP-belofte-kritiek in hoofdstuk 7.
 
 ## Hoofdstuk 5, EMS
 
