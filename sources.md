@@ -256,4 +256,35 @@ _Wordt aangevuld. Expliciet te verifiëren: Elia/CREG cijfers over VPP-opbrengst
 
 ## Hoofdstuk 8, Nuance Wa/Br
 
-_Wordt aangevuld. Bronnen: CWaPE, Brugel._
+Gevalideerd op 2026-04-19.
+
+### Capaciteitstarief en netvergoeding per gewest (slide 8.1)
+
+- **Fluvius, Capaciteitstarief 2026.** [fluvius.be/nl/factuur-en-tarieven/capaciteitstarief](https://www.fluvius.be/nl/factuur-en-tarieven/capaciteitstarief). Maandpiek kwartiermeting, minimum 2,5 kW, glijdend 12-maands-gemiddelde.
+- **VREG tarieven 2026 (FW-2026-ELEK).** [assets.vlaamsenutsregulator.be FW-2026-ELEK.pdf](https://assets.vlaamsenutsregulator.be/2025-11/FW%20-%202026%20-%20ELEK.pdf). Capaciteitscomponent ~57,45 EUR/kW inclusief btw voor 2026, varieert per netgebied.
+- **CWaPE, Changements en 2026 au niveau des tarifs de distribution.** [cwape.be communique 2026](https://www.cwape.be/documents-recents/communique-de-presse-changements-en-2026-au-niveau-des-tarifs-de-distribution). Keuzesysteem "tarif incitatif" sinds 1 jan 2026, capaciteitsterm op 0 EUR/kW, drie tarieven maal vijf tijdblokken.
+- **CWaPE, Structure tarifaire 2026-2029.** [cwape.be tariefmethodologie](https://www.cwape.be/documents-recents). Prosumententarief op omvormervermogen (kWe), ~87 EUR/kWe/jaar ORES 2026.
+- **Sibelga, Capacity rate.** [sibelga.be/en/connections-meters/rates/net-usage-rates/capacity-rate](https://www.sibelga.be/en/connections-meters/rates/net-usage-rates/capacity-rate). Forfaitair tarif capacitaire per meter, 47,24 EUR/jaar onder 13 kVA, 94,48 EUR boven, periode 2025-2029.
+- **Brugel, goedkeuring tarieven 2025-2029.** [brugel.brussels CP-Approbation-tarifs-2025-2029.pdf](https://brugel.brussels/publication/document/communiques/2024/fr/CP-Approbation-tarifs-2025-2029.pdf).
+
+### Compensatieregeling zonnepanelen per gewest (slide 8.1)
+
+- **Grondwettelijk Hof arrest 5/2021 van 14 januari 2021.** Eerder geciteerd in H3-sources, vernietigt terugdraaiende teller Vlaanderen.
+- **ORES, Compensation pour installations avant 01/01/2024.** [ores.be/particulier/compensation-avant-0101](https://www.ores.be/particulier/compensation-avant-0101). Compensatieregeling loopt tot 31/12/2030 voor Waalse PV-installaties in dienst vóór 1 januari 2024.
+- **CWaPE, Compensation tarif prosumer.** [cwape.be node 5205](https://www.cwape.be/node/5205). Bevestiging regime, procedurele afwijzing bij Raad van State.
+- **Brugel, fin de la compensation à Bruxelles.** [brugel.brussels actualites 267](https://brugel.brussels/actualites/information-sur-la-fin-de-la-compensation-a-bruxelles-267). Terugdraaiende teller afgeschaft november 2021, geen prosumententarief. Ondersteuning via groenestroomcertificaten: 2026 tarief 2,055 CV/MWh onder 5 kWc, 1,739 CV/MWh voor 5-36 kWc, minimumprijs 65 EUR per certificaat.
+
+### Premies per gewest (slide 8.1)
+
+- **Fluvius, Retroactieve investeringspremie zonnepanelen.** Eerder geciteerd in H3-sources. Aanvraagdeadline 31/12/2025, saneringsdossiers 31/03/2026.
+- **Mijn VerbouwPremie, warmtepompen en renovatie.** [vlaanderen.be/mijnverbouwpremie](https://www.vlaanderen.be/mijnverbouwpremie). Gemoduleerd per inkomenscategorie.
+- **SPW Énergie, Primes Habitation durable 2025-2026.** [logement.wallonie.be primes-habitation-regime-2025-2026.pdf](https://logement.wallonie.be/storage/logement/documents/content/publication/brochures/primes-habitation-regime-2025-2026.pdf). Warmtepomp lucht/water, water/water, bodem/water, hybride (niet lucht/lucht): 160 tot 4320 EUR afhankelijk van toestel en inkomen. Verplichte audit vooraf. Regime loopt 14/02/2025 tot 30/09/2026, daarna nieuw regime per 1/10/2026.
+- **Renolution Brussels, premies overzicht.** [renolution.brussels](https://renolution.brussels/en/search-premium). Renolution-premies bevroren eind 2025, Brusselse regering bevestigt in februari 2026 geen heropening, alternatief is 0%-lening.
+- **Federale regering, 6% btw op warmtepompen.** Sinds 1/1/2026 in alle woningen ongeacht bouwjaar, geldig tot 31/12/2030.
+
+### Nuances in speaker notes (niet op slide)
+
+- Thuisbatterij-premies bestaan anno 2026 in geen enkel van de drie gewesten.
+- Zuhal Demir procedeerde bij Raad van State tegen Waalse compensatieregeling. Auditeur verklaarde zaak procedureel onontvankelijk, regeling blijft dus staan tot 2030.
+- Peakshaving via batterij heeft in Brussel geen factuurargument (forfaitair tarif capacitaire, geen piekmeting). Zelfconsumptie en groenestroomcertificaten blijven wel spelen.
+- Brussel heeft sinds 2020 tarif capacitaire, dat steeg van 27,38 EUR (2024) naar 47,24 EUR (2026), +72,5% in twee jaar.
