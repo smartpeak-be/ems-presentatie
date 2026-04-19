@@ -175,6 +175,12 @@
 .reveal tbody tr.muted td {
   color: var(--sp-text-muted);
 }
+.reveal table.sp-compact { font-size: 0.62em; }
+.reveal table.sp-compact thead th,
+.reveal table.sp-compact tbody th,
+.reveal table.sp-compact tbody td {
+  padding: 0.35em 0.7em;
+}
 
 /* Controls and progress */
 .reveal .slide-number { display: none; }
@@ -317,7 +323,7 @@
   border-color: var(--sp-green);
 }
 
-/* Logo on title/closing slides — stays absolute */
+/* Corner logo (reserved voor slides waar logo als branding in hoek staat) */
 .reveal .sp-logo {
   position: absolute;
   top: 24px;
@@ -325,12 +331,21 @@
   height: 40px;
 }
 
+/* Hero-logo op titel- en afsluit-slides: in-flow, gecentreerd, groter */
+.reveal .sp-logo-hero {
+  display: block;
+  margin: 0 auto 1em;
+  height: 90px;
+  width: auto;
+}
+
 /* Title slide */
 .reveal .sp-title-slide {
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   min-height: 100%;
 }
 .reveal .sp-title-slide h1 {
@@ -352,6 +367,34 @@
   bottom: 0;
   width: 8px;
   background: linear-gradient(180deg, var(--sp-amber), var(--sp-marine));
+}
+
+/* Closing/QR slide */
+.reveal .sp-closing-slide {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+.reveal .sp-closing-slide h2 {
+  margin-top: 0.2em;
+}
+.reveal .sp-closing-slide h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal .sp-closing-slide .sp-qr {
+  display: block;
+  margin: 1em auto 0.4em;
+  width: 220px;
+  height: auto;
+}
+.reveal .sp-closing-slide .sp-qr-label {
+  font-size: 0.5em;
+  color: var(--sp-text-muted);
+  margin: 0;
 }
 
 /* Inline icons (for list items, stats, etc.) */
