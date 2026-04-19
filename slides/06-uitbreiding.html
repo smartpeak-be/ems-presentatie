@@ -1,13 +1,210 @@
-<!-- Hoofdstuk 6 — Uitbreiding: EV, warmtepomp, V2G -->
+<!-- Hoofdstuk 6: Uitbreiding: EV, warmtepomp, V2G -->
 <section>
+
+  <!-- 6.1: Opener -->
   <section>
     <span class="sp-chapter-label">6 · Uitbreiding</span>
-    <h2>Verder gaan: EV, warmtepomp, V2G</h2>
-    <p style="color: var(--sp-text-muted);">Laadpaal smart charging, DC-charging + V2G, warmtepomp high-level.</p>
+    <h2>Meer aan dat brein hangen</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <p class="sp-small">
+          Een EMS komt pas tot zijn recht zodra er meer dan één batterij onder hangt. Elke
+          verbruiker die kan wachten of moduleren, wordt een speler in dezelfde optimalisatie.
+        </p>
+        <p class="sp-small">
+          Drie typische aanvullingen: de <span class="sp-accent-marine">laadpaal</span>,
+          de <span class="sp-accent-marine">warmtepomp</span>,
+          en de <span class="sp-accent-marine">(warmwater)boiler</span>.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>Wat hangt er onder?</h3>
+        <ul>
+          <li>EV en laadpaal (AC of DC)</li>
+          <li>Warmtepomp, eventueel met buffervat</li>
+          <li>Elektrische of warmtepompboiler</li>
+          <li>Later: V2G zodra de auto het kan</li>
+        </ul>
+      </div>
+    </div>
+
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 6. Voordeel DC-charging
-      (Sungrow-achtig): hoge snelheid zonder AC-capaciteitsbelasting.
-      SmartPeak installeert warmtepompen niet, wel inhoudelijk behandelen.
+      Brug-slide, 30 seconden. Expliciet de link met H4 en H5: in H4 hadden we de
+      batterij, in H5 het brein. Nu breiden we uit. Drie groepen: mobiel (EV), thermisch
+      (warmtepomp, boiler), en later mogelijk V2G. We behandelen ze high-level en
+      technisch waar het raakt aan wat de klant wel of niet moet kopen.
+
+      SmartPeak installeert zelf wel laadpalen, geen warmtepompen. Dat zeggen we mondeling;
+      op de slide maken we daar geen punt van.
     </aside>
   </section>
+
+  <!-- 6.2: EV en smart charging -->
+  <section>
+    <span class="sp-chapter-label">6 · Uitbreiding</span>
+    <h2>De EV: drie manieren om slim te laden</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card green">
+        <h3>PV-modus</h3>
+        <p class="sp-small">
+          Laad enkel uit het overschot van je panelen. Nul euro per kWh, nul impact op
+          je maandpiek.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>Tariefmodus</h3>
+        <p class="sp-small">
+          Laad wanneer het dynamisch tarief laag is, bv. 's nachts of op zonnige middagen.
+          Koppeling met leverancier-API nodig.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Piekmodus</h3>
+        <p class="sp-small">
+          De lader moduleert tussen 1,4 en 11 kW zodat je maandpiek nooit doorschiet.
+          Redt je capaciteitstarief als het gezin en de oven samen aanstaan.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-small">
+      Een modern EMS combineert de drie: overdag uit PV, 's nachts aan goedkoop tarief,
+      altijd binnen de piek-grens.
+    </p>
+
+    <p class="sp-bron">Bron: Open Charge Alliance (OCPP 2.0.1); ISO 15118 Plug &amp; Charge; Fluvius capaciteitstarief; SmartPeak installatie-praktijk.</p>
+    <aside class="notes">
+      Belangrijkste vraag naar een installateur: werkt de laadpaal modulerend en praat die
+      met het EMS? Een lader die enkel aan of uit staat op 11 kW kost op termijn geld via
+      het capaciteitstarief.
+
+      Merken die alle drie modi aankunnen: Alfen Eve, Wallbox Pulsar, Zaptec Go, EVBox Elvi
+      met OCPP-backend. Smappee EV Line koppelt rechtstreeks aan de slimme meter voor
+      load-balancing.
+
+      Getal om in gedachten te houden: 11 kW gedurende 1 kwartier is 2,75 kWh doorzet.
+      Als het gezin al op 4 kW zat, duwt de auto je naar 6,75 kW voor de piek van die maand,
+      en dat cijfer blijft 12 maanden in je gemiddelde.
+    </aside>
+  </section>
+
+  <!-- 6.3: DC-charging en V2G -->
+  <section>
+    <span class="sp-chapter-label">6 · Uitbreiding</span>
+    <h2>DC-laden en V2G: waar het naartoe gaat</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>DC-gekoppeld laden</h3>
+        <p class="sp-small">
+          Hybride omvormer en DC-lader delen dezelfde DC-rail. PV en batterij gaan
+          rechtstreeks naar de auto, zonder om te zetten naar AC en terug.
+        </p>
+        <ul>
+          <li><strong class="sp-accent-marine">Minder verlies</strong>: één conversie in plaats van twee (~3% winst).</li>
+          <li><strong class="sp-accent-marine">AC blijft vrij</strong>: je huispiek wordt niet belast.</li>
+          <li>Hardware: Sungrow SH-lijn, Sigenergy, Huawei Luna.</li>
+        </ul>
+      </div>
+      <div class="sp-card marine">
+        <h3>V2G: auto als batterij</h3>
+        <p class="sp-small">
+          Je EV geeft terug aan huis of net. Een typische auto-batterij is 60 kWh,
+          dus groter dan je thuisbatterij. In 2026 nog pilot-fase.
+        </p>
+        <ul>
+          <li>CCS-bidirectioneel: standaard klaar, hardware trickelt binnen (VW ID, Renault 5, Kia EV9).</li>
+          <li>Garantie-impact op de auto-batterij vaak nog onduidelijk.</li>
+          <li>Contract met je leverancier nodig.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-small">
+      Praktisch: kies hardware die DC-coupling en V2G ondersteunt, maar reken er vandaag
+      nog geen rendement op. Wat nu pilot is, kan over drie jaar default worden.
+    </p>
+
+    <p class="sp-bron">Bron: Sungrow SH-serie datasheet; ISO 15118-20 (bidirectioneel); Elaad NL V2G Readiness 2025; Fluvius AREI aansluitvereisten.</p>
+    <aside class="notes">
+      DC-gekoppeld laden: PV 400V DC hoeft niet naar 230V AC om dan opnieuw in de auto
+      terug naar DC te gaan. Dat bespaart 3 tot 5 procent verlies, en je AC-aansluiting
+      blijft vrij voor de rest van het huis. Vooral relevant als je niet van plan bent de
+      aansluiting te laten verzwaren.
+
+      V2G status 2026 eerlijk: zes à acht auto-modellen ondersteunen het commercieel, twee
+      laders voor consumenten (Wallbox Quasar, dcbel). In België zijn er pilots via VUB
+      en UGent, een breed commercieel product voor particulieren is er nog niet. Hardware-
+      klaar zijn is nu al zinvol: de meerprijs voor een V2G-ready hybride omvormer is
+      beperkt, en je bewaart de optie.
+
+      Niet beloven: "over X jaar krijg je Y euro per V2G-cyclus". Dat is speculatie. Wel
+      benoemen: de standaarden staan, de auto's volgen, de leveranciers beginnen contracten
+      aan te bieden.
+
+      Fiets-terugbrenging (optioneel, mondeling): V2G is een renner die niet alleen mee kan
+      in het peloton, maar ook op kop durft te trekken wanneer dat nodig is.
+    </aside>
+  </section>
+
+  <!-- 6.4: Warmtepomp en boiler -->
+  <section>
+    <span class="sp-chapter-label">6 · Uitbreiding</span>
+    <h2>Warmtepomp en boiler: grote eters, dankbare bijsturing</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <h3>Warmtepomp</h3>
+        <p class="sp-small">
+          Een warmtepomp trekt 1 kWh elektriciteit en levert
+          <span class="sp-accent-marine">3 tot 5 kWh warmte</span> (COP). Als je EMS hem laat
+          draaien tijdens een PV-piek, zet je het overschot om in warm water of een
+          warmere binnentemperatuur. Dat is een virtuele batterij.
+        </p>
+        <p class="sp-small">
+          Voor de koppeling heeft de warmtepomp een <strong class="sp-accent-marine">SG Ready</strong>-ingang
+          nodig. Zonder dat kan het brein hem niet sturen op PV-overschot.
+        </p>
+      </div>
+      <div class="sp-card green">
+        <h3>Boiler</h3>
+        <p class="sp-small">
+          Klassieker: een elektrische boiler van 2 kW die enkel aanslaat bij PV-overschot.
+          Geen EMS strikt nodig, een dom stuurrelais volstaat.
+        </p>
+        <p class="sp-small">
+          Een warmtepompboiler doet hetzelfde met COP 2 à 3: dubbel zoveel warm water uit
+          dezelfde kWh overschot.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-small">
+      Vraag aan je installateur: <em>is er een SG Ready-ingang op de warmtepomp, en is
+      die gekoppeld aan de EMS?</em> Zonder die koppeling is je warmtepomp voor de
+      optimalisatie onzichtbaar.
+    </p>
+
+    <p class="sp-bron">Bron: BWP SG Ready label; Energyville warmtepomp-rendement studie 2024; Fluvius PV-zelfverbruik data.</p>
+    <aside class="notes">
+      Warmtepomp en boiler zijn conceptueel verschillend, maar in het EMS-plaatje lijken
+      ze op elkaar: beide zetten elektrische overschotten om in warmtereserve. Die reserve
+      vervangt afname later op de dag.
+
+      COP-getallen om paraat te hebben: lucht-water 3 tot 4 seizoensgemiddeld, grond-water
+      4 tot 5,5. Warmtepompboiler 2 tot 3. De 3-5 range op de slide dekt lucht-water, de
+      meest gekochte categorie in nieuwbouw en renovatie.
+
+      SmartPeak installeert zelf geen warmtepompen, wel de aansluiting op het EMS. Dat kan
+      via SG Ready-kabel, Modbus, of KNX, afhankelijk van het merk. Op de slide maken we
+      daar geen punt van: voor de klant telt enkel of de warmtepomp stuurbaar is.
+
+      Klassieke boiler als dumpload: 150L boiler op 2 kW, 1 uur op PV-overschot geeft
+      ongeveer 4,5 kWh opgeslagen warmte. Genoeg voor een douchebeurt 's avonds, zonder
+      dat het brein eraan te pas moet komen.
+    </aside>
+  </section>
+
 </section>
