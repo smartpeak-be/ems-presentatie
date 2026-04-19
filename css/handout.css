@@ -1,0 +1,236 @@
+/* Handout landing + bedankt + privacy — standalone styling
+   Herbruikt kleurvariabelen en fonts van de deck, zonder Reveal-dependency. */
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+:root {
+  --sp-marine: #0A2540;
+  --sp-marine-soft: #1E3A5F;
+  --sp-amber: #F5A623;
+  --sp-amber-soft: #FFF4E0;
+  --sp-red: #D62828;
+  --sp-green: #06A77D;
+  --sp-text: #1A202C;
+  --sp-text-muted: #4A5568;
+  --sp-bg: #FFFFFF;
+  --sp-bg-subtle: #F5F8FB;
+  --sp-border: #E2E8F0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--sp-bg-subtle);
+  color: var(--sp-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.sp-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.25rem;
+}
+
+.sp-card-host {
+  background: var(--sp-bg);
+  border: 1px solid var(--sp-border);
+  border-radius: 12px;
+  padding: 2rem 2rem 1.5rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(10, 37, 64, 0.06);
+}
+
+.sp-logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+  height: 56px;
+  width: auto;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.4em;
+  color: var(--sp-marine);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+p.sp-intro {
+  color: var(--sp-text-muted);
+  margin: 0 0 1.5rem;
+}
+
+form.sp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.sp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sp-field label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--sp-text);
+}
+
+.sp-field .sp-optional {
+  color: var(--sp-text-muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.sp-field input[type='email'],
+.sp-field input[type='text'] {
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--sp-border);
+  border-radius: 6px;
+  background: var(--sp-bg);
+  color: var(--sp-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.sp-field input[type='email']:focus,
+.sp-field input[type='text']:focus {
+  outline: none;
+  border-color: var(--sp-marine);
+  box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+}
+
+.sp-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--sp-text);
+  cursor: pointer;
+}
+
+.sp-checkbox input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sp-marine);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.sp-honeypot {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+button.sp-submit {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  background: var(--sp-marine);
+  color: var(--sp-bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button.sp-submit:hover,
+button.sp-submit:focus {
+  background: var(--sp-marine-soft);
+  outline: none;
+}
+
+a.sp-btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  background: var(--sp-amber);
+  color: var(--sp-marine);
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 1rem 0;
+}
+
+a.sp-btn:hover,
+a.sp-btn:focus {
+  background: #e89a1f;
+}
+
+.sp-fallback {
+  font-size: 0.85rem;
+  color: var(--sp-text-muted);
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sp-border);
+}
+
+.sp-fallback a { color: var(--sp-marine); }
+
+.sp-footer {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--sp-text-muted);
+  text-align: center;
+}
+
+.sp-footer a {
+  color: var(--sp-text-muted);
+  text-decoration: underline;
+  margin: 0 0.3rem;
+}
+
+.sp-check-icon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--sp-green);
+  color: white;
+  font-size: 1.8rem;
+  line-height: 52px;
+  text-align: center;
+  margin: 0 auto 1rem;
+  font-weight: 700;
+}
+
+/* Privacy-pagina: ruimer tekstblok */
+.sp-prose h1 { margin-bottom: 1rem; }
+.sp-prose h2 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.3rem;
+  color: var(--sp-marine);
+}
+.sp-prose p, .sp-prose li { color: var(--sp-text); }
+.sp-prose ul { padding-left: 1.2rem; margin: 0.3rem 0 0.8rem; }

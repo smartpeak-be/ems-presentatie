@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handout EMS-infoavond — SmartPeak</title>
+  <meta name="description" content="Ontvang de handout van de SmartPeak-infoavond over EMS en thuisbatterijen." />
+  <link rel="stylesheet" href="../css/handout.css" />
+</head>
+<body>
+  <main class="sp-page">
+    <section class="sp-card-host">
+      <img class="sp-logo" src="../assets/logo.jpg" alt="SmartPeak" />
+      <h1>Handout van de infoavond</h1>
+      <p class="sp-intro">
+        Laat je emailadres achter en je krijgt de volledige PDF met bronnen
+        en checklist direct te pakken. Ook in je mailbox, zodat je ze later nog terugvindt.
+      </p>
+
+      <form class="sp-form" action="https://formsubmit.co/info@smartpeak.be" method="POST">
+        <div class="sp-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="naam@voorbeeld.be" />
+        </div>
+
+        <div class="sp-field">
+          <label for="voornaam">Voornaam <span class="sp-optional">(optioneel)</span></label>
+          <input type="text" id="voornaam" name="voornaam" autocomplete="given-name" />
+        </div>
+
+        <label class="sp-checkbox">
+          <input type="checkbox" name="marketing_optin" value="ja" />
+          <span>Stuur me soms een update van SmartPeak.</span>
+        </label>
+
+        <!-- Formsubmit configuratie -->
+        <input type="hidden" name="_subject" value="Nieuwe handout-download, EMS-infoavond" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://smartpeak-be.github.io/ems-presentatie/handout/bedankt.html" />
+        <input type="hidden" name="_autoresponse" value="Bedankt voor je bezoek aan de SmartPeak-infoavond over EMS en thuisbatterijen.
+
+Hier is de handout met alle slides, bronnen en de checklist voor je aanbieder: https://smartpeak-be.github.io/ems-presentatie/handout.pdf
+
+Vragen of opmerkingen? Antwoord gerust op deze mail.
+
+— SmartPeak" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <!-- Honeypot tegen bots -->
+        <input type="text" name="_honey" class="sp-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button type="submit" class="sp-submit">Stuur me de handout</button>
+      </form>
+
+      <p class="sp-fallback">
+        Lukt het niet? Mail <a href="mailto:info@smartpeak.be">info@smartpeak.be</a> en we sturen je de handout zelf door.
+      </p>
+    </section>
+
+    <footer class="sp-footer">
+      <a href="https://smartpeak.be">smartpeak.be</a>
+      ·
+      <a href="../privacy/">Privacy</a>
+    </footer>
+  </main>
+</body>
+</html>
