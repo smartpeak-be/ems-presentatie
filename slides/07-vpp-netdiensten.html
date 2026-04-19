@@ -1,13 +1,168 @@
-<!-- Hoofdstuk 7 — Het grotere plaatje: VPP / netdiensten -->
+<!-- Hoofdstuk 7: Het grotere plaatje: VPP / netdiensten -->
 <section>
+
+  <!-- 7.1: Wat is een VPP? -->
   <section>
     <span class="sp-chapter-label">7 · VPP</span>
-    <h2>Het grotere plaatje: netdiensten</h2>
-    <p style="color: var(--sp-text-muted);">VPP, frequentieregeling, eerlijk cijfer voor particulieren anno 2026.</p>
+    <h2>Wat is een VPP?</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <p class="sp-small">
+          Een <strong>Virtual Power Plant</strong> is geen fysieke centrale. Het is software
+          die duizenden kleine batterijen, warmtepompen en laadpalen bundelt en op Elia's
+          markten aanbiedt als één virtuele eenheid.
+        </p>
+        <p class="sp-small">
+          Terug naar de fiets: snelheid is frequentie. Elia moet bij elke verstoring
+          onmiddellijk bijsturen. Batterijen reageren in
+          <span class="sp-accent-marine">milliseconden</span>, daar zijn ze beter in dan
+          welke klassieke centrale ook.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>Wat vraagt Elia?</h3>
+        <ul>
+          <li><strong>FCR</strong> (primair): reflex, onder 30 sec.</li>
+          <li><strong>aFRR</strong> (secundair): bijsturen 30 sec tot 15 min.</li>
+          <li><strong>mFRR</strong> (tertiair): manueel op afroep.</li>
+          <li>Tot 2022 quasi enkel grote centrales. Sinds 2023 kunnen aggregaten van thuisbatterijen meedoen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-bron">Bron: Elia Balancing Services overzicht; CREG Ancillary Services Report 2025; Entso-E System Operation Guideline.</p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Zie spec hoofdstuk 7. Eerlijk zijn
-      over wat het anno 2026 in BE al oplevert. Industriële batterijparken
-      concurreren rechtstreeks met thuisbatterijen. Opbrengst-cijfers verifiëren.
+      Kernidee: een VPP is een handelaar. Hij kijkt 24/7 welk Elia-product op dat moment
+      het best betaalt, en stuurt een deel van je batterij daarheen. Zolang je zelf een
+      minimum reserve houdt voor je eigen verbruik, valt dat niet op.
+
+      Fiets-terugbrenging expliciet: FCR is de reflex waarmee je instinctief de
+      stuurbalans corrigeert zonder na te denken. Dat is wat batterijen kunnen en
+      wat een kerncentrale of gascentrale nooit zo snel kan. Binnen 100 milliseconden
+      volle respons is gangbaar voor moderne BESS.
+
+      Elia's FCR-markt in BE is klein, ordegrootte 100 MW nationaal. De aFRR- en
+      mFRR-markten zijn groter en meer aantrekkelijk voor aggregaten.
+
+      Aggregators die in BE retail actief zijn voor thuisbatterijen anno 2026:
+      Tibo/Octopus Energy, Bolt, Luminus Flexio, in pilot Next Kraftwerke. Tesla VPP
+      is in BE beperkt uitgerold. Sungrow en Huawei werken aan eigen VPP-platforms.
     </aside>
   </section>
+
+  <!-- 7.2: Eerlijkheidsslide -->
+  <section>
+    <span class="sp-chapter-label">7 · VPP</span>
+    <h2>Wat levert het vandaag op?</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card">
+        <span class="sp-big-label">Ruwe opbrengst 2026 · 10 kWh batterij</span>
+        <span class="sp-big accent">€50 - €150</span>
+        <p class="sp-small">
+          Per jaar. Sterk afhankelijk van aggregator, cycli-limiet en contract.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <span class="sp-big-label">Overlap met zelfverbruik?</span>
+        <span class="sp-big">Ja</span>
+        <p class="sp-small">
+          Elke kWh die je batterij naar de VPP stuurt, is een kWh die niet beschikbaar
+          is voor je eigen avondpiek. Niet zomaar bovenop optellen.
+        </p>
+      </div>
+    </div>
+
+    <div class="sp-card marine">
+      <p class="sp-small">
+        <strong style="color: var(--sp-amber);">Rode draad: de markt egaliseert zichzelf.</strong>
+        Vilvoorde (200 MW), Green Turtle (600+ MW in aanbouw) en een half dozijn andere parken
+        spelen op exact dezelfde markten als een particuliere VPP.
+        aFRR-capaciteitsprijzen zijn tussen 2022 en 2025 meer dan gehalveerd.
+        Wie vandaag een batterij koopt voor VPP-opbrengst alléén, koopt een marge die verder krimpt.
+      </p>
+    </div>
+
+    <p class="sp-muted sp-tiny">
+      Vergeet daarnaast de cycli-kost niet. Eén VPP-cyclus slijt de batterij, reken 2 tot
+      4 cent per kWh doorzet af van de bruto-opbrengst.
+    </p>
+
+    <p class="sp-bron">Bron: Elia ancillary market prices 2022-2025; CREG monitoring 2024; Aurora Energy Research "Chasing the Peak" 2024; Tesla VPP Nederland resultaten 2024.</p>
+    <aside class="notes">
+      Eerlijke framing: VPP-opbrengst voor particulieren in BE 2026 is een
+      bijverdienste, geen businessmodel. Zelfverbruik + piekscheren dekken nog altijd
+      het grootste deel van de ROI op een thuisbatterij.
+
+      Waarom prijzen krimpen: aFRR-capaciteitsvergoeding ging van pieken rond
+      €200/MW/uur in 2022 naar €40 tot €80 in 2025. Elke nieuwe 100 MW aan batterijparken
+      drukt dat verder. Tegen 2028 is volgens Aurora een verdere halvering realistisch.
+
+      Tesla VPP Nederland publiceerde eind 2024 cijfers: ~80 tot 150 euro per Powerwall per jaar,
+      na cycli-aftrek. Eneco en Next Kraftwerke publiceren minder duidelijk, maar gelijkaardige orde.
+
+      Nuance voor vraag uit publiek: FCR betaalt ongeveer hetzelfde per MW ongeacht aanbieder,
+      dus particulieren verliezen het niet van grote parken op tarief, wel op
+      marktbetrouwbaarheid en snelheid van activering.
+    </aside>
+  </section>
+
+  <!-- 7.3: Valkuil en cowboy-tactieken -->
+  <section>
+    <span class="sp-chapter-label">7 · VPP</span>
+    <h2>Cowboy-tactieken rond VPP</h2>
+
+    <div class="sp-grid-3">
+      <div class="sp-card amber">
+        <h3>Vage opbrengst-belofte</h3>
+        <p class="sp-small">
+          "€300 per jaar extra via ons programma." Vraag: netto na cycli-slijtage?
+          Met welke aggregator? Over welke periode gemeten?
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Garantie versus gebruik</h3>
+        <p class="sp-small">
+          Sommige fabrikanten begrenzen garantie bij VPP-deelname. Tesla Powerwall 3:
+          37,8 MWh doorvoer voor arbitrage en VPP. Lees de clausule voor je tekent.
+        </p>
+      </div>
+      <div class="sp-card amber">
+        <h3>Exit-boetes en lock-in</h3>
+        <p class="sp-small">
+          "Gratis batterij mits 10 jaar VPP-contract." Meestal: slijtage-risico bij jou,
+          boete bij vroegtijdig stoppen, beperkte inzage in trading-logs.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-valkuil sp-small">
+      Drie vragen voor een VPP-aanbieder: op welke markten handelt mijn batterij?
+      Hoeveel cycli per jaar verwacht je? Wat is de netto-vergoeding per cyclus, en
+      staat die in het contract?
+    </p>
+
+    <p class="sp-bron">Bron: Tesla Powerwall 3 EU garantievoorwaarden 2025; Test-Aankoop VPP-contractanalyse; ACM marktmonitor flexibiliteit 2024.</p>
+    <aside class="notes">
+      Patroon consistent met H4.13 en H5.5: hardware-marge krimpt, dus proberen aanbieders
+      op software-contracten (VPP, abonnement, exit-clausules) te verdienen. Dezelfde drie
+      kritische vragen werken hier: toon dashboards van bestaande klanten, toon garantie,
+      toon trading-logs.
+
+      Concrete casussen: Sonnen Community in Duitsland had in 2022-2024 contractdiscussies
+      over cycli-compensatie. Tesla Powerwall 3 EU-garantie (versie 2025) heeft de expliciete
+      37,8 MWh-clausule voor "bulk energy use cases", wat arbitrage en VPP omvat.
+
+      Eerlijke aanbieder vs cowboy-test: de eerlijke toont je de trading-logs van de
+      vorige maand (hoeveel cycli, hoeveel opbrengst, hoeveel slijtage), en laat je
+      kiezen of je meedoet. Cowboy zegt "dat is allemaal automatisch geregeld" en
+      wimpelt de vraag af.
+
+      SmartPeak-positie (mondeling, niet op slide): wij bieden geen VPP-pakket aan.
+      Als de klant het wil, kan het, maar we pushen het niet. Dat is coherent met
+      "geen eigen EMS-platform, geen eigen cloud".
+    </aside>
+  </section>
+
 </section>
