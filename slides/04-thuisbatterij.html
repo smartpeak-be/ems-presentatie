@@ -6,9 +6,8 @@
     <span class="sp-chapter-label">4 · Thuisbatterij</span>
     <h2>Nu de batterij zelf</h2>
     <p class="sp-muted sp-small">
-      We hebben nu een factuur en we weten hoe de prijzen werken.
-      Tijd om te kijken wat een thuisbatterij daar concreet aan toevoegt,
-      en waar het mis kan gaan.
+      Na factuur, prijzen en de situatie van je zonnepanelen, nu de batterij zelf.
+      Tijd om te kijken wat die concreet toevoegt, en waar het mis kan gaan.
     </p>
     <aside class="notes">
       Korte opener, 20 sec. Stel in dat dit het dikste hoofdstuk is van de avond.
@@ -247,6 +246,10 @@
       </p>
     </div>
 
+    <p class="sp-muted sp-tiny">
+      DC-coupling speelt later ook voor het EV-laden, daar komen we in hoofdstuk 6 op terug.
+    </p>
+
     <p class="sp-bron">Bron: HTW Berlin Stromspeicher-Inspektion 2025 (onafhankelijke lab-tests, 22 systemen).</p>
     <aside class="notes">
       HTW Berlin's kernconclusie is nuttig: datasheets van fabrikanten zijn onderling
@@ -289,50 +292,6 @@
 
       Vendor lock-in flag: Huawei, BYD en Tesla hebben garantievoorwaarden die
       niet-goedgekeurde omvormers uitsluiten. Gaat bij elk onderwerp cowboys-gevoelig.
-    </aside>
-  </section>
-
-  <!-- 4.8: EV en V2G -->
-  <section>
-    <span class="sp-chapter-label">4 · Thuisbatterij</span>
-    <h2>Laadpaal, DC-charging en V2G</h2>
-
-    <div class="sp-grid-3">
-      <div class="sp-card">
-        <h3>AC-laden</h3>
-        <p class="sp-small">Klassieke wallbox, 7-22 kW, telt mee in je capaciteitstarief-piek.</p>
-      </div>
-      <div class="sp-card amber">
-        <h3>DC-laden thuis</h3>
-        <p class="sp-small">Sungrow SH-RT + DC-oplader: PV en batterij laden de auto via DC-bus,
-        zonder AC-meter dus zonder impact op capaciteitstarief.</p>
-      </div>
-      <div class="sp-card green">
-        <h3>V2G</h3>
-        <p class="sp-small">Auto laadt terug naar het net. Hardware klaar, regelgeving in BE nog niet.</p>
-      </div>
-    </div>
-
-    <div class="sp-card">
-      <p class="sp-small">
-        <strong>Belangrijke nuance:</strong> DC-laden omzeilt enkel de AC-meter voor het deel dat uit
-        PV en batterij komt. Wat erbovenop uit het net wordt getrokken gaat alsnog via AC en telt mee.
-      </p>
-    </div>
-
-    <p class="sp-bron">Bron: Sungrow productdocumentatie 2026; Elia V2G adequacy; NextMobility 2026.</p>
-    <aside class="notes">
-      V2G in BE 2026: hardware-ready, niet commercieel.
-      Blokkerende zaken:
-      - Bidirectionele laders meestal nog niet door RGIE-keuring.
-      - Onzekerheid rond BIV / bedrijfswagen-fiscaliteit voor teruggestuurde stroom.
-      - Geen DSO-tarief dat V2G-injectie hoger vergoedt dan standaard injectievergoeding.
-
-      Elia schat 80% round-trip voor V2G. Auto's die het technisch ondersteunen in 2026:
-      Nissan Leaf, Kia EV6/EV9, Hyundai Ioniq 5/6, Renault 5, Volvo EX90 (hardware-ready),
-      Ford F-150 Lightning, BYD Atto 3. BMW/Mercedes roadmap 2026-2027.
-
-      Correcte framing voor publiek: "hardware bestaat, regulering niet, kom binnen 2 jaar terug".
     </aside>
   </section>
 
