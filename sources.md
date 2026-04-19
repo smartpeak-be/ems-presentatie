@@ -282,12 +282,25 @@ Gevalideerd op 2026-04-19.
 - **Renolution Brussels, premies overzicht.** [renolution.brussels](https://renolution.brussels/en/search-premium). Renolution-premies bevroren eind 2025, Brusselse regering bevestigt in februari 2026 geen heropening, alternatief is 0%-lening.
 - **Federale regering, 6% btw op warmtepompen.** Sinds 1/1/2026 in alle woningen ongeacht bouwjaar, geldig tot 31/12/2030.
 
+### Waals tarif Impact met tijdblokken (slide 8.2)
+
+- **ORES, Comprendre ma facture Impact.** [ores.be/comprendre-ma-facture/impact](https://www.ores.be/comprendre-ma-facture/impact). Officiële labels ECO / MEDIUM / PIC met euro-symbolen. Vijf tijdblokken, 7 dagen op 7 identiek, geen winter/zomer-onderscheid:
+  - ECO 01-07u + 11-17u (12 uur/dag), 5,09 ct/kWh distributie.
+  - MEDIUM 07-11u + 22-01u (7 uur/dag), 10,83 ct/kWh.
+  - PIC 17-22u (5 uur/dag), 16,57 ct/kWh. Factor 3,3 duurder dan ECO.
+- **ORES, Tarifs distribution 2026.** [ores.be/comprendre-ma-facture/tarifs-distribution-2026](https://www.ores.be/comprendre-ma-facture/tarifs-distribution-2026).
+- **Kleurcode groen/oranje/rood:** didactische visualisatie in derdenbronnen (Selectra, DegandPartners, Test-Aankoop, Engie-blog). **Niet officieel** CWaPE/ORES-schema. Expliciet op slide als "kleurcode is didactisch".
+- **La Libre, Combien puis-je économiser avec les tarifs incitatifs (24/02/2026).** [lalibre.be artikel](https://www.lalibre.be/economie/conjoncture/2026/02/24/wallonie-combien-puis-je-economiser-avec-les-tarifs-incitatifs-PZUA7DAYS5H4JF4WX6KU22QPSU/).
+- **Renouvelle, Une tarification incitative dès 2026 en Wallonie.** [renouvelle.be](https://www.renouvelle.be/fr/electricite-une-tarification-incitative-des-2026-en-wallonie/).
+
 ### Nuances in speaker notes (niet op slide)
 
 - Thuisbatterij-premies bestaan anno 2026 in geen enkel van de drie gewesten.
 - Zuhal Demir procedeerde bij Raad van State tegen Waalse compensatieregeling. Auditeur verklaarde zaak procedureel onontvankelijk, regeling blijft dus staan tot 2030.
 - Peakshaving via batterij heeft in Brussel geen factuurargument (forfaitair tarif capacitaire, geen piekmeting). Zelfconsumptie en groenestroomcertificaten blijven wel spelen.
 - Brussel heeft sinds 2020 tarif capacitaire, dat steeg van 27,38 EUR (2024) naar 47,24 EUR (2026), +72,5% in twee jaar.
+- CWaPE-communicatie noemt soms factor 3x en 5x (MEDIUM vs ECO en PIC vs ECO). Dat slaat op marginale distributiecomponent zonder vaste termen. De 5,09 / 10,83 / 16,57 ct/kWh op slide zijn all-in distributie voor residentiële laagspanning ORES.
+- Batterij of EMS in Wallonië optimaliseert op **tijdsblok**, niet op kW-piek. Vlaams peakshaving-argument werkt daar niet. Wie dat verkoopt, verkoopt een Vlaams argument aan een Waalse klant.
 
 ## Hoofdstuk 9, ROI-tool
 
@@ -312,7 +325,7 @@ Gevalideerd op 2026-04-19 tegen de live tool en repo.
 Synthese van eerdere valkuil-slides:
 - Vraag 1 "Reken met mijn data" — H4.9 sizing, H4.13 cowboy-tactiek 1 "oversized op basis van standaardprofiel".
 - Vraag 2 "Worst case én optimistisch" — directe afspiegeling van de dual-scenario-logica in de tool zelf.
-- Vraag 3 "Toon bestaand dashboard" — H5.5 EMS-cowboy-tactiek, H7.3 VPP-cowboy-tactiek.
+- Vraag 3 "Nazorg" — vervangt eerdere dashboard-vraag (GDPR-gevoelig, kan niet gevraagd worden zonder klantdata te tonen). Klassieke cowboy-test: verkoper belooft, service vergeet. Concrete invulling: lokale monteur, reactietermijn op papier, jaarlijks onderhoud.
 - Vraag 4 "Keuring en BTW" — H4.13 verborgen kosten. Keuring 200-400 EUR residentieel, 6% vs 21% BTW op 8000 EUR = 1200 EUR delta.
 - Vraag 5 "Garantie-clausules" — Tesla Powerwall 3 37,8 MWh doorvoer-cap + Huawei LUNA 60/80% retentie non-DE vs DE, eerder geciteerd in H4-sources.
 
