@@ -325,7 +325,7 @@ Gevalideerd op 2026-04-19 tegen de live tool en repo.
 Synthese van eerdere valkuil-slides:
 - Vraag 1 "Reken met mijn data" — H4.9 sizing, H4.13 cowboy-tactiek 1 "oversized op basis van standaardprofiel".
 - Vraag 2 "Worst case én optimistisch" — directe afspiegeling van de dual-scenario-logica in de tool zelf.
-- Vraag 3 "Nazorg" — vervangt eerdere dashboard-vraag (GDPR-gevoelig, kan niet gevraagd worden zonder klantdata te tonen). Klassieke cowboy-test: verkoper belooft, service vergeet. Concrete invulling: lokale monteur, reactietermijn op papier, jaarlijks onderhoud.
+- Vraag 3 "Wat bij een defect" — vervangt eerdere dashboard-vraag (GDPR-gevoelig, kan niet gevraagd worden zonder klantdata te tonen) én eerste nazorg-herformulering (suggereerde te veel dat installateur zelf garantie dekt). Eerlijke realiteit: garantie loopt via fabrikant-app (Fronius Solar.web, Huawei FusionSolar, AlphaESS Cloud, SolarEdge monitoring). Installateur helpt waar mogelijk, maar is geen garantieverstrekker, bijstand is gunst niet recht.
 - Vraag 4 "Keuring en BTW" — H4.13 verborgen kosten. Keuring 200-400 EUR residentieel, 6% vs 21% BTW op 8000 EUR = 1200 EUR delta.
 - Vraag 5 "Garantie-clausules" — Tesla Powerwall 3 37,8 MWh doorvoer-cap + Huawei LUNA 60/80% retentie non-DE vs DE, eerder geciteerd in H4-sources.
 
