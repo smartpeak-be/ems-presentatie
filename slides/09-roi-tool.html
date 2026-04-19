@@ -1,21 +1,63 @@
 <!-- Hoofdstuk 9 — De ROI-tool live -->
 <section>
+
+  <!-- 9.1 Assumpties -->
   <section>
     <span class="sp-chapter-label">9 · ROI</span>
-    <h2>Assumpties in de tool</h2>
-    <ul>
-      <li>Dag- en nachttarief</li>
-      <li>Capaciteitstarief</li>
-      <li>Batterij-cycli</li>
-      <li>BTW (6 % of 21 %)</li>
-      <li>Keuring (wel of niet)</li>
-    </ul>
-    <p class="sp-bron">Bron: SmartPeak ROI-tool, input-parameters.</p>
+    <h2>Wat rekent de tool echt?</h2>
+
+    <div class="sp-grid-2">
+      <div>
+        <p class="sp-small">
+          Geen generiek verbruiksprofiel, geen aangenomen gezin. De tool vraagt
+          <strong>jouw Fluvius-CSV</strong> en werkt met de laatste 365 dagen. Heb je
+          meer jaren data, dan krijg je er een meerjarig gemiddelde bij.
+        </p>
+        <p class="sp-small">
+          Voor elke batterij rekent ze <span class="sp-accent-marine">twee scenario's</span>:
+          een worst-case met een daglimiet (je kan nooit meer besparen dan wat je die dag
+          effectief van het net trok) en een optimistische met ideale omstandigheden. De
+          waarheid zit ertussen, en eerlijke offertes tonen beide.
+        </p>
+      </div>
+      <div class="sp-card">
+        <h3>Parameters die je invult</h3>
+        <ul>
+          <li><strong>Fluvius-CSV:</strong> kwartiermetingen, dag- of tweevoudig tarief.</li>
+          <li><strong>PV-omvormervermogen:</strong> begrenst hoe snel de batterij kan laden.</li>
+          <li><strong>BTW:</strong> 6 of 21 procent, afhankelijk van woning-leeftijd.</li>
+          <li><strong>Keuring:</strong> wel of niet verrekend in de kostprijs.</li>
+          <li><strong>Max zinvolle capaciteit:</strong> grootste batterij waar nog minstens 100 volle cycli per jaar worden gehaald.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sp-bron">Bron: SmartPeak Battery ROI Calculator (smartpeak-be/battery-roi-tool), productconfig via publieke Google Sheet.</p>
     <aside class="notes">
-      SCAFFOLD. Tekst blijft, context komt in vervolgplan.
+      De kern van deze tool is dat ze geen verkoper is. Ze rekent met jouw data, niet met
+      een modelgezin. Twee scenario's per batterij maken het verschil zichtbaar tussen
+      "wat zou kunnen" en "wat minstens haalbaar is".
+
+      De worst-case logica in één zin: als je op een zonnige dag 15 kWh in de batterij
+      stopt maar die dag maar 8 kWh van het net hebt gehaald, telt de tool maar 8 kWh
+      als besparing. Het surplus mag niet tellen. Ideaal-scenario doet dat wel.
+
+      Max-capaciteit-regel: de tool scant 2,5 tot 200 kWh in stappen van 2,5 en stopt bij
+      de grootste capaciteit waar je nog minstens 100 dagen per jaar volledig oplaadt.
+      Grotere batterijen nemen, is geld betalen voor cellen die de helft van het jaar
+      staan te vegeteren.
+
+      Tarieven komen uit een door ons bijgehouden Google Sheet per productlijn, met vier
+      prijskolommen (6 procent zonder keuring, 6 met keuring, 21 zonder, 21 met). Wijzigen
+      prijzen, dan is het één spreadsheet-update, niet een code-release.
+
+      Wat we niet rekenen: VPP-opbrengst en dynamische arbitrage. Dat is bewust. Die twee
+      zijn krimpende posten en we willen geen ROI opkloppen op bijverdiensten die volgend
+      jaar minder zijn.
     </aside>
   </section>
 
+  <!-- 9.2 Live embed -->
   <section data-background-color="#F7FAFC">
     <span class="sp-chapter-label">9 · ROI</span>
     <h2>Live berekening</h2>
@@ -27,18 +69,104 @@
     ></iframe>
     <p class="sp-bron">Live embed: smartpeak-be.github.io/battery-roi-tool</p>
     <aside class="notes">
-      Bij presentatie: vooraf gedeelde-resultaten-URL laden, geen live CSV-upload.
-      Fallback: screenshot als iframe niet laadt (zie assets/illustrations/roi-fallback.png, toe te voegen).
+      Laad vóór de presentatie een vooraf-gedeelde URL met een realistisch profiel
+      (ordegrootte 4500 kWh afname, 5000 kWh injectie). Gebruik de share-link-knop
+      in de tool om die URL te genereren en bookmark ze op de presentatielaptop.
+
+      Live-toon wat er gebeurt als de bezoeker in het publiek de capaciteit opschroeft:
+      de eerste stap geeft duidelijk rendement, vanaf een bepaald punt vlakt de curve af.
+      Dat visuele plateau is de beste uitleg van oversizing die we kunnen geven.
+
+      Toon ook het verschil tussen worst-case en optimistisch scenario per batterij.
+      Dat is de fysieke bewijsvoering voor onze eerdere regel: vraag altijd beide
+      cijfers van een aanbieder.
+
+      Fallback als de iframe niet laadt: screenshot die we op voorhand maken en bewaren
+      als assets/illustrations/roi-fallback.png. Niet stressen, publiek merkt het amper
+      als je rustig doorgaat.
+
+      Praktijk-tip: zet WiFi-reserve klaar voor het geval de zaal-WiFi wegvalt. De tool
+      laadt de productconfig uit een externe Google Sheet, die moet bereikbaar zijn.
     </aside>
   </section>
 
+  <!-- 9.3 Checklist -->
   <section>
     <span class="sp-chapter-label">9 · ROI</span>
-    <h2>Vraag je aanbieder</h2>
-    <p style="color: var(--sp-text-muted);">Checklist, 5 concrete vragen. Komt in vervolgplan.</p>
+    <h2>Vijf vragen voor je aanbieder</h2>
+
+    <div class="sp-grid-2">
+      <div class="sp-card marine">
+        <h3>1 · Reken met mijn data</h3>
+        <p class="sp-small">
+          "Reken jullie met mijn Fluvius-CSV, of met een aangenomen verbruiksprofiel?"
+          Een profiel is gokken, een CSV is meten.
+        </p>
+      </div>
+      <div class="sp-card marine">
+        <h3>2 · Toon worst case én optimistisch</h3>
+        <p class="sp-small">
+          "Welke ROI geldt als ik op vakantie ga, en welke bij perfect zomerseizoen?"
+          Wie enkel het beste cijfer toont, verkoopt, rekent niet.
+        </p>
+      </div>
+      <div class="sp-card marine">
+        <h3>3 · Laat me een bestaand dashboard zien</h3>
+        <p class="sp-small">
+          "Toon het dashboard van een bestaande klant, vorige maand. Hoeveel cycli,
+          hoeveel kWh bespaard, hoeveel VPP-opbrengst?" Abstracte grafieken zeggen niets.
+        </p>
+      </div>
+      <div class="sp-card marine">
+        <h3>4 · Hoe zit het met keuring en BTW</h3>
+        <p class="sp-small">
+          "Staat keuring in de prijs? Welk BTW-tarief? Is de premie al afgetrokken of niet?"
+          Drie kleine lijnen kunnen samen meer dan duizend euro schelen.
+        </p>
+      </div>
+      <div class="sp-card marine" style="grid-column: 1 / -1;">
+        <h3>5 · Wat staat er in je garantie</h3>
+        <p class="sp-small">
+          "Welke cycli-limiet, welke doorvoer-cap voor arbitrage of VPP, en wat gebeurt
+          er met de garantie als ik verhuis of overstap van aggregator?" Schrijf het
+          antwoord op, zodat je het terug kan lezen.
+        </p>
+      </div>
+    </div>
+
+    <p class="sp-muted sp-tiny">
+      Een QR-code naar deze checklist staat straks op de afsluitslide. Meenemen, uitprinten, laten ondertekenen.
+    </p>
+
+    <p class="sp-bron">Bron: samengesteld uit H4.13 (batterij), H5.5 (EMS), H7.3 (VPP) en de vier-prijskolommen-logica van de SmartPeak ROI-tool.</p>
     <aside class="notes">
-      SCAFFOLD. Content komt in vervolgplan. Doel: letterlijke checklist die
-      publiek thuis kan gebruiken om offertes te vergelijken.
+      Deze vijf vragen zijn de praktische synthese van alle "cowboy-tactieken"-slides.
+      Wie eerlijk verkoopt, kan de vijf zonder aarzelen beantwoorden. Wie wegkijkt bij
+      één van de vijf, geeft een bruikbaar signaal.
+
+      Laat als presentator aan het publiek horen dat dit niet over ons gaat, maar over
+      wat een gezonde aanbieder kenmerkt. Als iemand in de zaal ons deze vijf vragen
+      mailt, antwoorden we ook met die vijf antwoorden. Dat is de coherentie-test.
+
+      Praktisch: vraag 1 (eigen CSV) valt op omdat sommige aanbieders vandaag nog
+      standaardprofielen gebruiken uit Synergrid-tabellen. Dat is snel rekenen, niet
+      correct rekenen voor jouw specifieke woning.
+
+      Vraag 2 (twee scenario's) is de directe link naar wat de tool zelf doet. Als
+      de offerte naast je maar één cijfer zet, is het al een rood vlaggetje.
+
+      Vraag 3 (dashboard) is de meest afwijzingsgevoelige. Integere aanbieders tonen
+      het dashboard graag, met de klant zijn permissie. Wie zegt "dat is vertrouwelijk"
+      zonder alternatief aan te bieden, zegt "ik heb er geen".
+
+      Vraag 4 is doodsaai maar scheelt veel geld. Keuring van een batterij-installatie
+      kost 200 tot 400 euro, BTW scheelt 15 procent op een installatie van 8000 euro
+      is 1200 euro verschil.
+
+      Vraag 5 is waar het subtiel wordt. Garantie-clausules met doorvoer-caps (Tesla
+      Powerwall 3 op 37,8 MWh, Huawei 60 vs 80 procent retentie) zijn geen bijzaak,
+      zijn het kernverschil tussen een goede en slechte aankoop.
     </aside>
   </section>
+
 </section>

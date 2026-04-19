@@ -288,3 +288,53 @@ Gevalideerd op 2026-04-19.
 - Zuhal Demir procedeerde bij Raad van State tegen Waalse compensatieregeling. Auditeur verklaarde zaak procedureel onontvankelijk, regeling blijft dus staan tot 2030.
 - Peakshaving via batterij heeft in Brussel geen factuurargument (forfaitair tarif capacitaire, geen piekmeting). Zelfconsumptie en groenestroomcertificaten blijven wel spelen.
 - Brussel heeft sinds 2020 tarif capacitaire, dat steeg van 27,38 EUR (2024) naar 47,24 EUR (2026), +72,5% in twee jaar.
+
+## Hoofdstuk 9, ROI-tool
+
+Gevalideerd op 2026-04-19 tegen de live tool en repo.
+
+### Tool-architectuur en parameters (slide 9.1)
+
+- **smartpeak-be/battery-roi-tool, repo + CLAUDE.md.** [github.com/smartpeak-be/battery-roi-tool](https://github.com/smartpeak-be/battery-roi-tool). Single-page calculator, gh-pages deploy, geen build-step.
+- **Fluvius-CSV-formaat.** Semicolon-separated, datums dd-mm-yyyy, decimaal komma. Rolling 365-dagen-venster vanaf laatste CSV-datum. Bij <1 jaar data: schaal-factor 365/dagen en isFullYear=false trigger.
+- **Multi-year averaging.** Bij ≥2 volledige jaarblokken toont renderer "gem. N j" naast enkele-jaar-cijfer en ▼-marker op progress bars.
+- **Dubbele scenario's (worst case + optimistisch).** Worst-case cap: Math.min(dayCharged, d.afname) per dag, dus batterij kan nooit meer besparen dan effectieve grid-afname die dag. Optimistisch: unscaled threshold, ideaal. PV-omvormer > batterij-omvormer: daily-injection threshold wordt geschaald met pvInv/batInv.
+- **Max zinvolle capaciteit.** Sweep 2,5 → 200 kWh in 2,5 kWh stappen, max-regel = grootste capaciteit waar nog ≥100 volle laaddagen per jaar. Gedreven door jaar-1, niet door multi-year gemiddelde.
+- **Productconfig via Google Sheet.** SHEET_CSV_URL + gid 425908603. Vier prijskolommen (BTW%_keuring): 6_no, 6_yes, 21_no, 21_yes.
+
+### Live embed + fallback (slide 9.2)
+
+- **smartpeak-be.github.io/battery-roi-tool.** Publieke URL, werkt iframeable. `?data=<b64>` share-link-mechanisme (v:1-5) voor vooraf-ingevuld scenario.
+- **Fallback:** screenshot in assets/illustrations/roi-fallback.png (nog toe te voegen).
+
+### Checklist vijf vragen (slide 9.3)
+
+Synthese van eerdere valkuil-slides:
+- Vraag 1 "Reken met mijn data" — H4.9 sizing, H4.13 cowboy-tactiek 1 "oversized op basis van standaardprofiel".
+- Vraag 2 "Worst case én optimistisch" — directe afspiegeling van de dual-scenario-logica in de tool zelf.
+- Vraag 3 "Toon bestaand dashboard" — H5.5 EMS-cowboy-tactiek, H7.3 VPP-cowboy-tactiek.
+- Vraag 4 "Keuring en BTW" — H4.13 verborgen kosten. Keuring 200-400 EUR residentieel, 6% vs 21% BTW op 8000 EUR = 1200 EUR delta.
+- Vraag 5 "Garantie-clausules" — Tesla Powerwall 3 37,8 MWh doorvoer-cap + Huawei LUNA 60/80% retentie non-DE vs DE, eerder geciteerd in H4-sources.
+
+### Nuances in speaker notes (niet op slide)
+
+- Tool rekent geen VPP-opbrengst en geen dynamische arbitrage bewust niet mee. Krimpende posten, geen deugdelijke basis voor ROI-belofte.
+- Google-Sheet-sourcing betekent dat prijswijzigingen geen code-release vereisen, maar ook dat de sheet publiek-leesbaar moet blijven.
+- Project-mode (Firebase) is een aparte auth-gated workflow voor Kevin/Ruben; de iframe-embed gebruikt de publieke bare-modus.
+
+## Hoofdstuk 10, Afsluiter
+
+Gevalideerd op 2026-04-19.
+
+### Samenvatting drie punten (slide 10.1)
+
+Rechtstreekse synthese van eerdere hoofdstukken:
+- Punt 1 "vier knoppen factuur" — H2.
+- Punt 2 "batterij zonder brein is doos" — H4.3 trade-off + H5 EMS.
+- Punt 3 "vijf vragen" — H9.3.
+
+### Contact en QR (slide 10.2)
+
+- **smartpeak.be** — bedrijfswebsite.
+- **Handout-PDF** — genereerd in CI via Reveal `?print-pdf` + Puppeteer, gepubliceerd als /handout.pdf op GitHub Pages.
+- **Toekomstige email-gate:** QR wijst nu direct, maar krijgt later een email-capture-tussenstap (zie project_pdf_email_gate.md).
