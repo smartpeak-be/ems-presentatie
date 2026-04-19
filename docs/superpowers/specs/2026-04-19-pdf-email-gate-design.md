@@ -46,7 +46,7 @@ Alles in de bestaande `smartpeak-be/ems-presentatie`-repo. Geen aparte deploy.
    - stuurt notificatie naar `info@smartpeak.be` (tabel-view),
    - stuurt auto-reply naar bezoekers-email met de PDF-link,
    - redirect de browser naar `/handout/bedankt.html`.
-5. Bedankt-pagina triggert PDF-download automatisch, toont fallback-knop.
+5. Bedankt-pagina toont een download-knop; bezoeker klikt zelf. Geen auto-download, voor correct gedrag op mobiel en om niet te pushy te voelen.
 
 Eénmalige setup: de eerste submit vereist dat `info@smartpeak.be` bij Formsubmit.co geactiveerd wordt via een bevestigingsmail. Dat is een eenmalige manuele klik door Kevin. Voor activatie wordt er niets naar de submitter gestuurd (ook geen auto-reply).
 
