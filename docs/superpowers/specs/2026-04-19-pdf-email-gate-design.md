@@ -48,7 +48,9 @@ Alles in de bestaande `smartpeak-be/ems-presentatie`-repo. Geen aparte deploy.
    - redirect de browser naar `/handout/bedankt.html`.
 5. Bedankt-pagina triggert PDF-download automatisch, toont fallback-knop.
 
-Eénmalige setup: de eerste submit vereist dat `info@smartpeak.be` bij Formsubmit.co geactiveerd wordt via een bevestigingsmail. Dat is een eenmalige manuele klik door Kevin.
+Eénmalige setup: de eerste submit vereist dat `info@smartpeak.be` bij Formsubmit.co geactiveerd wordt via een bevestigingsmail. Dat is een eenmalige manuele klik door Kevin. Voor activatie wordt er niets naar de submitter gestuurd (ook geen auto-reply).
+
+**Belangrijke Formsubmit-quirk:** `_captcha=false` blokkeert stil de autoresponse naar submitter. Dus captcha moet aanstaan (default). Gevolg: Formsubmit toont één extra tussenpagina met een reCAPTCHA-challenge voor de submit. Lichte UX-kost, maar onmisbaar om de auto-reply met PDF-link te krijgen. De bedankt-pagina blijft sowieso de direct-download-fallback.
 
 ## Error handling
 
