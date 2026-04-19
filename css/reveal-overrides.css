@@ -156,6 +156,15 @@
   padding: 0.45em 1em;
   border-bottom: 1px solid var(--sp-border);
 }
+.reveal tbody th {
+  padding: 0.45em 1em;
+  border-bottom: 1px solid var(--sp-border);
+  background: var(--sp-amber-soft);
+  color: var(--sp-marine);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
 .reveal tbody tr:last-child td {
   border-bottom: none;
 }
